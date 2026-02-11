@@ -30,12 +30,12 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 20),
             Text("Confidence: ${(result.confidence * 100).toStringAsFixed(2)}%"),
             const SizedBox(height: 20),
-            const Text("Generated Sentence:"),
-            const SizedBox(height: 8),
-            Text(
-              result.sentence,
-              style: const TextStyle(fontSize: 18),
-            ),
+            // const Text("Generated Sentence:"),
+            // const SizedBox(height: 8),
+            // Text(
+            //   result.sentence,
+            //   style: const TextStyle(fontSize: 18),
+            // ),
             const Spacer(),
             Center(
               child: ElevatedButton(

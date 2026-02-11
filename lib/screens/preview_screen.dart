@@ -73,11 +73,12 @@ class _PreviewScreenState extends State<PreviewScreen> {
                       ),
                     );
                   } catch (e) {
-                    Navigator.pop(context);
+                    print("Error: $e");
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Prediction failed")),
+                      SnackBar(content: Text("Prediction failed: $e")),
                     );
                   }
+
                 },
                 child: const Text("Upload & Predict"),
               ),
