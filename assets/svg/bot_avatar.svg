@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Bot head -->
+  <rect x="15" y="20" width="70" height="60" rx="20" fill="currentColor"/>
+  <!-- Antenna -->
+  <rect x="47" y="5" width="6" height="18" rx="3" fill="currentColor"/>
+  <circle cx="50" cy="5" r="5" fill="currentColor"/>
+  <!-- Eyes -->
+  <circle cx="33" cy="44" r="9" fill="white" opacity="0.9"/>
+  <circle cx="67" cy="44" r="9" fill="white" opacity="0.9"/>
+  <circle cx="35" cy="45" r="5" fill="#1a1a2e"/>
+  <circle cx="69" cy="45" r="5" fill="#1a1a2e"/>
+  <!-- Eye shine -->
+  <circle cx="37" cy="43" r="2" fill="white"/>
+  <circle cx="71" cy="43" r="2" fill="white"/>
+  <!-- Smile -->
+  <path d="M32 64 Q50 76 68 64" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Hand signs on sides -->
+  <rect x="2" y="40" width="8" height="20" rx="4" fill="currentColor" opacity="0.5"/>
+  <rect x="90" y="40" width="8" height="20" rx="4" fill="currentColor" opacity="0.5"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- ISL Alphabet - A sign (closed fist with thumb) -->
+  <g transform="translate(50, 55)">
+    <!-- Fist shape -->
+    <rect x="-20" y="-25" width="40" height="35" rx="8" fill="currentColor"/>
+    <!-- Thumb to side -->
+    <rect x="-30" y="-10" width="16" height="10" rx="5" fill="currentColor"/>
+    <!-- Knuckle lines -->
+    <line x1="-8" y1="-25" x2="-8" y2="-15" stroke="white" stroke-width="2" opacity="0.4"/>
+    <line x1="2" y1="-25" x2="2" y2="-15" stroke="white" stroke-width="2" opacity="0.4"/>
+    <line x1="12" y1="-25" x2="12" y2="-15" stroke="white" stroke-width="2" opacity="0.4"/>
+  </g>
+  <!-- Letter A label -->
+  <text x="50" y="98" text-anchor="middle" font-size="14" font-family="sans-serif" font-weight="bold" fill="currentColor">A B C</text>
+</svg>

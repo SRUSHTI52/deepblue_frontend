@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Heart shape in hand -->
+  <g transform="translate(50, 55)">
+    <!-- Palm -->
+    <rect x="-20" y="-5" width="40" height="28" rx="8" fill="currentColor"/>
+    <!-- Fingers curved up holding heart -->
+    <rect x="-18" y="-22" width="9" height="20" rx="4" fill="currentColor"/>
+    <rect x="-7" y="-26" width="9" height="23" rx="4" fill="currentColor"/>
+    <rect x="4" y="-26" width="9" height="23" rx="4" fill="currentColor"/>
+    <rect x="14" y="-22" width="9" height="20" rx="4" fill="currentColor"/>
+    <!-- Heart -->
+    <path d="M0,-30 C0,-36 -8,-40 -8,-32 C-8,-26 0,-20 0,-20 C0,-20 8,-26 8,-32 C8,-40 0,-36 0,-30 Z" fill="white" opacity="0.9"/>
+  </g>
+  <text x="50" y="98" text-anchor="middle" font-size="11" font-family="sans-serif" font-weight="bold" fill="currentColor">Emotions</text>
+</svg>

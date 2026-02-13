@@ -39,7 +39,10 @@ dependencies:
   video_player: ^2.8.2
   http: ^1.2.0
   path_provider: ^2.1.2
-
+  flutter_svg: ^2.0.10+1      # SVG rendering for all hand icons
+  google_fonts: ^6.2.1         # Nunito typeface
+  animated_text_kit: ^4.2.2    # Optional text animations
+  lottie: ^3.1.0               # Optional Lottie JSON animations
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -63,9 +66,18 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+     - assets/svg/
+     - assets/images/
+#     - svg/alphabets.svg
+#     - svg/app_logo.svg
+#     - svg/bot_avatar.svg
+#     - svg/daily_actions.svg
+#     - svg/emergency.svg
+#     - svg/emotions.svg
+#     - svg/greetings.svg
+#     - svg/hand_camera.svg
+#     - svg/numbers.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
