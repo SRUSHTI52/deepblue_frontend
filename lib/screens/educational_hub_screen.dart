@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:isl_deep_blue/screens/category_detail_screen.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_widgets.dart';
 
@@ -102,11 +103,23 @@ class _EducationalHubScreenState extends State<EducationalHubScreen>
     }
   }
 
+  // void _navigateToLesson(SignCategory category) {
+  //   // Placeholder: navigate to lesson screen when backend is ready
+  //   Navigator.of(context).pushNamed(
+  //     category.route,
+  //     arguments: {'title': category.title, 'color': category.color},
+  //   );
+  // }
   void _navigateToLesson(SignCategory category) {
-    // Placeholder: navigate to lesson screen when backend is ready
-    Navigator.of(context).pushNamed(
-      category.route,
-      arguments: {'title': category.title, 'color': category.color},
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => CategoryDetailScreen(
+          categoryId: category.title.toLowerCase().replaceAll(' ', '_'),
+          title: category.title,
+          color: category.color,
+        ),
+      ),
     );
   }
 
@@ -129,10 +142,10 @@ class _EducationalHubScreenState extends State<EducationalHubScreen>
               ],
               background: _buildHeader(context),
             ),
-            bottom: PreferredSize(
-              preferredSize: const Size.fromHeight(56),
-              child: _buildSearchBar(context),
-            ),
+            // bottom: PreferredSize(
+            //   preferredSize: const Size.fromHeight(56),
+            //   child: _buildSearchBar(context),
+            // ),
           ),
 
           // ── Grid ─────────────────────────────────────────────────────────
@@ -226,28 +239,28 @@ class _EducationalHubScreenState extends State<EducationalHubScreen>
   }
 
   // ── Search/Filter bar ─────────────────────────────────────────────────────
-  Widget _buildSearchBar(BuildContext context) {
-    return Container(
-      height: 56,
-      color: AppColors.background,
-      padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
-      child: TextField(
-        style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-          color: AppColors.textPrimary,
-        ),
-        decoration: InputDecoration(
-          hintText: 'Search sign categories…',
-          prefixIcon: const Icon(
-            Icons.search_rounded,
-            color: AppColors.textSecondary,
-            size: 20,
-          ),
-          contentPadding: const EdgeInsets.symmetric(vertical: 10),
-          isDense: true,
-        ),
-      ),
-    );
-  }
+  // Widget _buildSearchBar(BuildContext context) {
+  //   return Container(
+  //     height: 56,
+  //     color: AppColors.background,
+  //     padding: const EdgeInsets.fromLTRB(20, 0, 20, 8),
+  //     child: TextField(
+  //       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+  //         color: AppColors.textPrimary,
+  //       ),
+  //       decoration: InputDecoration(
+  //         hintText: 'Search sign categories…',
+  //         prefixIcon: const Icon(
+  //           Icons.search_rounded,
+  //           color: AppColors.textSecondary,
+  //           size: 20,
+  //         ),
+  //         contentPadding: const EdgeInsets.symmetric(vertical: 10),
+  //         isDense: true,
+  //       ),
+  //     ),
+  //   );
+  // }
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

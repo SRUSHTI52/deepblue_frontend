@@ -1,0 +1,262 @@
+{
+  "categories": [
+    {
+      "id": "alphabets",
+      "title": "Alphabets",
+      "description": "Learn Indian Sign Language Alphabets",
+      "thumbnail": "assets/images/A.png",
+      "lessons": [
+        {
+          "id": "a",
+          "title": "Letter A",
+          "description": "This is ISL sign for A",
+          "mediaType": "image",
+          "mediaPath": "assets/images/A.png"
+        },
+        {
+          "id": "b",
+          "title": "Letter B",
+          "description": "This is ISL sign for B",
+          "mediaType": "image",
+          "mediaPath": "assets/images/B.png"
+        },
+        {
+          "id": "c",
+          "title": "Letter C",
+          "description": "This is ISL sign for C",
+          "mediaType": "image",
+          "mediaPath": "assets/images/C.png"
+        },
+        {
+          "id": "d",
+          "title": "Letter D",
+          "description": "This is ISL sign for D",
+          "mediaType": "image",
+          "mediaPath": "assets/images/D.png"
+        },
+        {
+          "id": "e",
+          "title": "Letter E",
+          "description": "This is ISL sign for E",
+          "mediaType": "image",
+          "mediaPath": "assets/images/E.png"
+        }
+      ]
+    },
+    {
+      "id": "numbers",
+      "title": "Numbers",
+      "description": "Learn ISL numbers from 0 to 20",
+      "thumbnail": "assets/images/numbers.png",
+      "lessons": [
+        {
+          "id": "0",
+          "title": "Number 0",
+          "description": "ISL sign for 0",
+          "mediaType": "image",
+          "mediaPath": "assets/images/0.png"
+        },
+        {
+          "id": "1",
+          "title": "Number 1",
+          "description": "ISL sign for 1",
+          "mediaType": "image",
+          "mediaPath": "assets/images/1.png"
+        },
+        {
+          "id": "2",
+          "title": "Number 2",
+          "description": "ISL sign for 2",
+          "mediaType": "image",
+          "mediaPath": "assets/images/2.png"
+        },
+        {
+          "id": "3",
+          "title": "Number 3",
+          "description": "ISL sign for 3",
+          "mediaType": "image",
+          "mediaPath": "assets/images/3.png"
+        },
+        {
+          "id": "4",
+          "title": "Number 4",
+          "description": "ISL sign for 4",
+          "mediaType": "image",
+          "mediaPath": "assets/images/4.png"
+        }
+      ]
+    },
+    {
+      "id": "daily_actions",
+      "title": "Daily Actions",
+      "description": "Common daily ISL action signs",
+      "thumbnail": "assets/images/daily_actions.png",
+      "lessons": [
+        {
+          "id": "eat",
+          "title": "Eat",
+          "description": "ISL sign for Eat",
+          "mediaType": "image",
+          "mediaPath": "assets/images/eat.png"
+        },
+        {
+          "id": "drink",
+          "title": "Drink",
+          "description": "ISL sign for Drink",
+          "mediaType": "image",
+          "mediaPath": "assets/images/drink.png"
+        },
+        {
+          "id": "sleep",
+          "title": "Sleep",
+          "description": "ISL sign for Sleep",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/sleep.mp4"
+        },
+        {
+          "id": "walk",
+          "title": "Walk",
+          "description": "ISL sign for Walk",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/walk.mp4"
+        },
+        {
+          "id": "strong",
+          "title": "Strong",
+          "description": "ISL sign for Strong",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/strong.mp4"
+        }
+      ]
+    },
+    {
+      "id": "emotions",
+      "title": "Emotions",
+      "description": "Learn ISL signs for emotions",
+      "thumbnail": "assets/images/emotions.png",
+      "lessons": [
+        {
+          "id": "happy",
+          "title": "Happy",
+          "description": "ISL sign for Happy",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/happy.mp4"
+        },
+        {
+          "id": "sad",
+          "title": "Sad",
+          "description": "ISL sign for Sad",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/sad.mp4"
+        },
+        {
+          "id": "angry",
+          "title": "Angry",
+          "description": "ISL sign for Angry",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/emotions/angry.mp4"
+        },
+        {
+          "id": "surprised",
+          "title": "Surprised",
+          "description": "ISL sign for Surprised",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/emotions/surprised.mp4"
+        },
+        {
+          "id": "fear",
+          "title": "Fear",
+          "description": "ISL sign for Fear",
+          "mediaType": "image",
+          "mediaPath": "assets/images/emotions/fear.png"
+        }
+      ]
+    },
+    {
+      "id": "emergency",
+      "title": "Emergency",
+      "description": "Important ISL signs for emergency situations",
+      "thumbnail": "assets/images/emergency.png",
+      "lessons": [
+        {
+          "id": "help",
+          "title": "Help",
+          "description": "ISL sign for Help",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/emergency/help.mp4"
+        },
+        {
+          "id": "danger",
+          "title": "Danger",
+          "description": "ISL sign for Danger",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/emergency/danger.mp4"
+        },
+        {
+          "id": "doctor",
+          "title": "Doctor",
+          "description": "ISL sign for Doctor",
+          "mediaType": "image",
+          "mediaPath": "assets/images/emergency/doctor.png"
+        },
+        {
+          "id": "police",
+          "title": "Police",
+          "description": "ISL sign for Police",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/emergency/police.mp4"
+        },
+        {
+          "id": "hospital",
+          "title": "Hospital",
+          "description": "ISL sign for Hospital",
+          "mediaType": "image",
+          "mediaPath": "assets/images/emergency/hospital.png"
+        }
+      ]
+    },
+    {
+      "id": "greetings",
+      "title": "Greetings",
+      "description": "Common ISL greeting signs",
+      "thumbnail": "assets/images/greetings.png",
+      "lessons": [
+        {
+          "id": "hello",
+          "title": "Hello",
+          "description": "ISL sign for Hello",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/greetings/hello.mp4"
+        },
+        {
+          "id": "thank_you",
+          "title": "Thank You",
+          "description": "ISL sign for Thank You",
+          "mediaType": "image",
+          "mediaPath": "assets/images/greetings/thank_you.png"
+        },
+        {
+          "id": "sorry",
+          "title": "Sorry",
+          "description": "ISL sign for Sorry",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/greetings/sorry.mp4"
+        },
+        {
+          "id": "good_morning",
+          "title": "Good Morning",
+          "description": "ISL sign for Good Morning",
+          "mediaType": "video",
+          "mediaPath": "assets/videos/greetings/good_morning.mp4"
+        },
+        {
+          "id": "bye",
+          "title": "Goodbye",
+          "description": "ISL sign for Goodbye",
+          "mediaType": "image",
+          "mediaPath": "assets/images/greetings/bye.png"
+        }
+      ]
+    }
+  ]
+}

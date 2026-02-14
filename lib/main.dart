@@ -15,25 +15,29 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'theme/app_theme.dart';
 import 'screens/splash_screen.dart';
 import 'screens/main_navigation.dart';
 import 'screens/educational_hub_screen.dart';
 import 'screens/placeholder_screens.dart';
-// ── Your real sign-detection screen (camera + video recording) ──────────────
 import 'screens/record_screen.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Lock to portrait mode for consistent hand-detection experience
-  SystemChrome.setPreferredOrientations([
+  // ── Initialize Hive ────────────────────────────────────────────────
+  await Hive.initFlutter();
+  await Hive.openBox('progressBox');
+
+  // ── Lock to portrait mode for consistent hand-detection experience ─
+  await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  // Transparent status bar so gradients bleed to the top edge
+  // ── Transparent status bar so gradients bleed to the top edge ───────
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
@@ -55,10 +59,10 @@ class ISLConnectApp extends StatelessWidget {
       title: 'ISL Connect',
       debugShowCheckedModeBanner: false,
 
-      // ── Theme ──────────────────────────────────────────────────────────
+      // ── Theme ────────────────────────────────────────────────────────
       theme: AppTheme.lightTheme,
 
-      // ── Accessibility: clamp text scale so layouts don't break ─────────
+      // ── Accessibility: clamp text scale ──────────────────────────────
       builder: (context, child) {
         final mediaQuery = MediaQuery.of(context);
         return MediaQuery(
@@ -72,30 +76,21 @@ class ISLConnectApp extends StatelessWidget {
         );
       },
 
-      // ── Initial route: always start at splash ─────────────────────────
+      // ── Initial route ────────────────────────────────────────────────
       initialRoute: '/splash',
 
-      // ── Route table ────────────────────────────────────────────────────
+      // ── Routes ───────────────────────────────────────────────────────
       onGenerateRoute: (settings) {
         switch (settings.name) {
-
-        // ── Core screens ────────────────────────────────────────────────
           case '/splash':
             return _fadeRoute(const SplashScreen(), settings);
 
           case '/main':
             return _fadeRoute(const MainNavigation(), settings);
 
-        // ── Detection workflow → RecordScreen (camera + ISL recording) ────
-        // RecordScreen is your file: lib/screens/record_screen.dart
-        // It opens the front camera, records the sign, then pushes PreviewScreen.
           case '/detection':
-            return _slideRoute(
-              const RecordScreen(),
-              settings,
-            );
+            return _slideRoute(const RecordScreen(), settings);
 
-        // ── Practice mode ────────────────────────────────────────────────
           case '/practice':
             return _slideRoute(
               const GenericPlaceholderScreen(
@@ -108,7 +103,6 @@ class ISLConnectApp extends StatelessWidget {
               settings,
             );
 
-        // ── Recent signs history ─────────────────────────────────────────
           case '/recent':
             return _slideRoute(
               const GenericPlaceholderScreen(
@@ -121,7 +115,6 @@ class ISLConnectApp extends StatelessWidget {
               settings,
             );
 
-        // ── Individual lesson screens (all categories) ───────────────────
           case '/lessons/alphabets':
           case '/lessons/numbers':
           case '/lessons/daily_actions':
@@ -136,13 +129,10 @@ class ISLConnectApp extends StatelessWidget {
               settings,
             );
 
-        // ── Fallback ─────────────────────────────────────────────────────
           default:
             return _fadeRoute(
               const Scaffold(
-                body: Center(
-                  child: Text('Page not found'),
-                ),
+                body: Center(child: Text('Page not found')),
               ),
               settings,
             );
@@ -151,7 +141,7 @@ class ISLConnectApp extends StatelessWidget {
     );
   }
 
-  // ── Smooth fade transition ─────────────────────────────────────────────────
+  // ── Fade transition ────────────────────────────────────────────────
   static PageRoute _fadeRoute(Widget page, RouteSettings settings) {
     return PageRouteBuilder(
       settings: settings,
@@ -167,7 +157,7 @@ class ISLConnectApp extends StatelessWidget {
     );
   }
 
-  // ── Slide-up transition (for detail screens) ───────────────────────────────
+  // ── Slide-up transition ────────────────────────────────────────────
   static PageRoute _slideRoute(Widget page, RouteSettings settings) {
     return PageRouteBuilder(
       settings: settings,
@@ -178,8 +168,13 @@ class ISLConnectApp extends StatelessWidget {
         final slide = Tween<Offset>(
           begin: const Offset(0, 1),
           end: Offset.zero,
-        ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
-        final fade = CurvedAnimation(parent: animation, curve: Curves.easeOut);
+        ).animate(
+          CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+        );
+
+        final fade =
+        CurvedAnimation(parent: animation, curve: Curves.easeOut);
+
         return SlideTransition(
           position: slide,
           child: FadeTransition(opacity: fade, child: child),
@@ -188,6 +183,182 @@ class ISLConnectApp extends StatelessWidget {
     );
   }
 }
+
+// import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+//
+// import 'theme/app_theme.dart';
+// import 'screens/splash_screen.dart';
+// import 'screens/main_navigation.dart';
+// import 'screens/educational_hub_screen.dart';
+// import 'screens/placeholder_screens.dart';
+// // ── Your real sign-detection screen (camera + video recording) ──────────────
+// import 'screens/record_screen.dart';
+//
+// void main() {
+//   WidgetsFlutterBinding.ensureInitialized();
+//
+//   // Lock to portrait mode for consistent hand-detection experience
+//   SystemChrome.setPreferredOrientations([
+//     DeviceOrientation.portraitUp,
+//     DeviceOrientation.portraitDown,
+//   ]);
+//
+//   // Transparent status bar so gradients bleed to the top edge
+//   SystemChrome.setSystemUIOverlayStyle(
+//     const SystemUiOverlayStyle(
+//       statusBarColor: Colors.transparent,
+//       statusBarIconBrightness: Brightness.light,
+//       systemNavigationBarColor: Colors.white,
+//       systemNavigationBarIconBrightness: Brightness.dark,
+//     ),
+//   );
+//
+//   runApp(const ISLConnectApp());
+// }
+//
+// class ISLConnectApp extends StatelessWidget {
+//   const ISLConnectApp({super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'ISL Connect',
+//       debugShowCheckedModeBanner: false,
+//
+//       // ── Theme ──────────────────────────────────────────────────────────
+//       theme: AppTheme.lightTheme,
+//
+//       // ── Accessibility: clamp text scale so layouts don't break ─────────
+//       builder: (context, child) {
+//         final mediaQuery = MediaQuery.of(context);
+//         return MediaQuery(
+//           data: mediaQuery.copyWith(
+//             textScaler: mediaQuery.textScaler.clamp(
+//               minScaleFactor: 0.85,
+//               maxScaleFactor: 1.25,
+//             ),
+//           ),
+//           child: child!,
+//         );
+//       },
+//
+//       // ── Initial route: always start at splash ─────────────────────────
+//       initialRoute: '/splash',
+//
+//       // ── Route table ────────────────────────────────────────────────────
+//       onGenerateRoute: (settings) {
+//         switch (settings.name) {
+//
+//         // ── Core screens ────────────────────────────────────────────────
+//           case '/splash':
+//             return _fadeRoute(const SplashScreen(), settings);
+//
+//           case '/main':
+//             return _fadeRoute(const MainNavigation(), settings);
+//
+//         // ── Detection workflow → RecordScreen (camera + ISL recording) ────
+//         // RecordScreen is your file: lib/screens/record_screen.dart
+//         // It opens the front camera, records the sign, then pushes PreviewScreen.
+//           case '/detection':
+//             return _slideRoute(
+//               const RecordScreen(),
+//               settings,
+//             );
+//
+//         // ── Practice mode ────────────────────────────────────────────────
+//           case '/practice':
+//             return _slideRoute(
+//               const GenericPlaceholderScreen(
+//                 title: 'Practice Mode',
+//                 icon: Icons.play_circle_fill_rounded,
+//                 color: AppColors.accent,
+//                 description:
+//                 'Interactive sign practice with real-time feedback\nwill be available here once the model is connected.',
+//               ),
+//               settings,
+//             );
+//
+//         // ── Recent signs history ─────────────────────────────────────────
+//           case '/recent':
+//             return _slideRoute(
+//               const GenericPlaceholderScreen(
+//                 title: 'Recent Signs',
+//                 icon: Icons.history_rounded,
+//                 color: AppColors.primary,
+//                 description:
+//                 'Your detected and practiced signs will be\nlogged and displayed here.',
+//               ),
+//               settings,
+//             );
+//
+//         // ── Individual lesson screens (all categories) ───────────────────
+//           case '/lessons/alphabets':
+//           case '/lessons/numbers':
+//           case '/lessons/daily_actions':
+//           case '/lessons/emotions':
+//           case '/lessons/emergency':
+//           case '/lessons/greetings':
+//             final args = settings.arguments as Map<String, dynamic>?;
+//             final title = args?['title'] as String? ?? 'Lesson';
+//             final color = args?['color'] as Color? ?? AppColors.primary;
+//             return _slideRoute(
+//               LessonPlaceholderScreen(title: title, color: color),
+//               settings,
+//             );
+//
+//         // ── Fallback ─────────────────────────────────────────────────────
+//           default:
+//             return _fadeRoute(
+//               const Scaffold(
+//                 body: Center(
+//                   child: Text('Page not found'),
+//                 ),
+//               ),
+//               settings,
+//             );
+//         }
+//       },
+//     );
+//   }
+//
+//   // ── Smooth fade transition ─────────────────────────────────────────────────
+//   static PageRoute _fadeRoute(Widget page, RouteSettings settings) {
+//     return PageRouteBuilder(
+//       settings: settings,
+//       pageBuilder: (_, __, ___) => page,
+//       transitionDuration: const Duration(milliseconds: 350),
+//       reverseTransitionDuration: const Duration(milliseconds: 250),
+//       transitionsBuilder: (_, animation, __, child) {
+//         return FadeTransition(
+//           opacity: CurvedAnimation(parent: animation, curve: Curves.easeOut),
+//           child: child,
+//         );
+//       },
+//     );
+//   }
+//
+//   // ── Slide-up transition (for detail screens) ───────────────────────────────
+//   static PageRoute _slideRoute(Widget page, RouteSettings settings) {
+//     return PageRouteBuilder(
+//       settings: settings,
+//       pageBuilder: (_, __, ___) => page,
+//       transitionDuration: const Duration(milliseconds: 380),
+//       reverseTransitionDuration: const Duration(milliseconds: 280),
+//       transitionsBuilder: (_, animation, __, child) {
+//         final slide = Tween<Offset>(
+//           begin: const Offset(0, 1),
+//           end: Offset.zero,
+//         ).animate(CurvedAnimation(parent: animation, curve: Curves.easeOutCubic));
+//         final fade = CurvedAnimation(parent: animation, curve: Curves.easeOut);
+//         return SlideTransition(
+//           position: slide,
+//           child: FadeTransition(opacity: fade, child: child),
+//         );
+//       },
+//     );
+//   }
+// }
 
 
 // import 'package:flutter/material.dart';
