@@ -75,15 +75,6 @@ flutter:
      - assets/images/
      - assets/videos/
      - assets/data/education_content.json
-#     - svg/alphabets.svg
-#     - svg/app_logo.svg
-#     - svg/bot_avatar.svg
-#     - svg/daily_actions.svg
-#     - svg/emergency.svg
-#     - svg/emotions.svg
-#     - svg/greetings.svg
-#     - svg/hand_camera.svg
-#     - svg/numbers.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

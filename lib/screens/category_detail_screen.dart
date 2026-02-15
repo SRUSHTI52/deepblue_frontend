@@ -5,6 +5,7 @@ import '../services/education_service.dart';
 import '../services/progress_service.dart';
 import '../models/category_model.dart';
 import 'lesson_screen.dart';
+import 'package:hive/hive.dart';
 
 class CategoryDetailScreen extends StatefulWidget {
   final String categoryId;
@@ -50,8 +51,6 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
 
     final List<String> lessonIds =
     category!.lessons.map((e) => e.id).toList();
-
-
 
     final progress =
     ProgressService.calculateProgress(lessonIds);
@@ -113,6 +112,8 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                           builder: (_) => LessonScreen(
                             lesson: lesson,
                             color: widget.color,
+                            lessons: category!.lessons,
+                            currentIndex: index,
                           ),
                         ),
                       );

@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import '../models/lesson_model.dart';
+import '../services/progress_service.dart';
+import 'quiz_screen.dart';
+
 
 class LessonScreen extends StatefulWidget {
   final Lesson lesson;
   final Color color;
+  final List<Lesson> lessons;
+  final int currentIndex;
+
 
   const LessonScreen({
     super.key,
     required this.lesson,
     required this.color,
+    required this.lessons,
+    required this.currentIndex,
   });
+
 
   @override
   State<LessonScreen> createState() => _LessonScreenState();
@@ -49,6 +58,33 @@ class _LessonScreenState extends State<LessonScreen> {
       currentVideoIndex++;
       _controller!.dispose();
       _initializeVideo();
+    }else {
+      // Last video finished → mark completed
+      ProgressService.markLessonComplete(widget.lesson.id);
+      if (widget.currentIndex < widget.lessons.length - 1) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => LessonScreen(
+              lesson: widget.lessons[widget.currentIndex + 1],
+              color: widget.color,
+              lessons: widget.lessons,
+              currentIndex: widget.currentIndex + 1,
+            ),
+          ),
+        );
+      } else {
+        // All lessons done → navigate to Quiz
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => QuizScreen(
+              categoryId: widget.lesson.id,
+            ),
+          ),
+        );
+      }
+
     }
   }
 
@@ -88,10 +124,49 @@ class _LessonScreenState extends State<LessonScreen> {
             /// Videos Section
             if (_controller != null &&
                 _controller!.value.isInitialized)
-              AspectRatio(
-                aspectRatio: _controller!.value.aspectRatio,
-                child: VideoPlayer(_controller!),
-              ),
+              Column(
+                children: [
+                  AspectRatio(
+                    aspectRatio: _controller!.value.aspectRatio,
+                    child: VideoPlayer(_controller!),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.replay),
+                        onPressed: () {
+                          _controller!.seekTo(Duration.zero);
+                          _controller!.play();
+                        },
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          _controller!.value.isPlaying
+                              ? Icons.pause
+                              : Icons.play_arrow,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _controller!.value.isPlaying
+                                ? _controller!.pause()
+                                : _controller!.play();
+                          });
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.skip_next),
+                        onPressed: _playNextVideo,
+                      ),
+                    ],
+                  ),
+                ],
+              )
+
+            // AspectRatio(
+              //   aspectRatio: _controller!.value.aspectRatio,
+              //   child: VideoPlayer(_controller!),
+              // ),
           ],
         ),
       ),
