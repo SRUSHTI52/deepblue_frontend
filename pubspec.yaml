@@ -46,6 +46,8 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   percent_indicator: ^4.2.2
+  webview_flutter: ^4.7.0
+
   # Optional Lottie JSON animations
 dev_dependencies:
   flutter_test:
@@ -75,6 +77,7 @@ flutter:
      - assets/images/
      - assets/videos/
      - assets/data/education_content.json
+     - assets/isl_avatar_viewer.html
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

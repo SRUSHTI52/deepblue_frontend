@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
         slivers: [
           // ── Custom SliverAppBar with gradient header ──────────────────────
           SliverAppBar(
-            expandedHeight: 100,
+            expandedHeight: 160,
             floating: false,
             pinned: false,
             snap: false,
@@ -86,10 +86,13 @@ class _HomeScreenState extends State<HomeScreen>
               background: _buildHeader(context),
             ),
           ),
-
+          // const SizedBox(height: 28),
+          SliverToBoxAdapter(
+            child: SizedBox(height: 20),
+          ),
           // ── Main content ─────────────────────────────────────────────────
           SliverPadding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 50),
+            padding: const EdgeInsets.fromLTRB(10, 0, 10, 20),
             sliver: SliverList(
               delegate: SliverChildListDelegate([
                 // ── Hero detection button ─────────────────────────────────
@@ -122,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen>
                     title: 'Practice Mode',
                     icon: Icons.play_circle_fill_rounded,
                     color: AppColors.accent,
-                    onTap: _openPractice,
+                    onTap: _startDetection,
                   ),
                 ),
 
@@ -212,25 +215,25 @@ class _HomeScreenState extends State<HomeScreen>
                     ),
                   ),
                   // Notification / profile icon
-                  FadeSlideIn(
-                    delay: const Duration(milliseconds: 100),
-                    child: Container(
-                      width: 48,
-                      height: 48,
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(14),
-                        border: Border.all(
-                          color: Colors.white.withOpacity(0.25),
-                        ),
-                      ),
-                      child: const Icon(
-                        Icons.notifications_none_rounded,
-                        color: Colors.white,
-                        size: 24,
-                      ),
-                    ),
-                  ),
+                  // FadeSlideIn(
+                  //   delay: const Duration(milliseconds: 100),
+                  //   child: Container(
+                  //     width: 48,
+                  //     height: 48,
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.white.withOpacity(0.15),
+                  //       borderRadius: BorderRadius.circular(14),
+                  //       border: Border.all(
+                  //         color: Colors.white.withOpacity(0.25),
+                  //       ),
+                  //     ),
+                  //     child: const Icon(
+                  //       Icons.notifications_none_rounded,
+                  //       color: Colors.white,
+                  //       size: 24,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
               const SizedBox(height: 8),
@@ -323,12 +326,14 @@ class _HomeScreenState extends State<HomeScreen>
                       ),
                     ),
                     padding: const EdgeInsets.all(20),
-                    child: SvgPicture.asset(
-                      'assets/svg/hand_camera.svg',
-                      colorFilter: const ColorFilter.mode(
-                        Colors.white,
-                        BlendMode.srcIn,
-                      ),
+                    child: Image.asset(
+                      'assets/images/camera.png',
+                      fit: BoxFit.contain,
+
+                      // colorFilter: const ColorFilter.mode(
+                      //   Colors.white,
+                      //   BlendMode.srcIn,
+                      // ),
                     ),
                   ),
                 ],

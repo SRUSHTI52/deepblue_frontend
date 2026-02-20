@@ -159,7 +159,7 @@ class _SplashScreenState extends State<SplashScreen>
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 32),
                         child: Text(
-                          'Communicate Freely\nThrough Signs',
+                          'GESPY',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             fontFamily: 'Nunito',
@@ -197,7 +197,7 @@ class _SplashScreenState extends State<SplashScreen>
                         ),
                       ),
                       child: const Text(
-                        'Indian Sign Language',
+                        'Communicate Freely Through Signs',
                         style: TextStyle(
                           fontFamily: 'Nunito',
                           fontSize: 14,
@@ -217,7 +217,7 @@ class _SplashScreenState extends State<SplashScreen>
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 24),
                       child: Text(
-                        'ISL Connect',
+                        'Indian Sign Language',
                         style: TextStyle(
                           fontFamily: 'Nunito',
                           fontSize: 13,

@@ -13,6 +13,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_widgets.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:image_picker/image_picker.dart';
+
 
 // ── Message data model ───────────────────────────────────────────────────────
 class ChatMessage {
@@ -41,20 +45,20 @@ class _ChatbotScreenState extends State<ChatbotScreen>
   // ── Message list ─────────────────────────────────────────────────────────
   final List<ChatMessage> _messages = [
     ChatMessage(
-      text: "Namaste! 🤟 I'm your ISL guide. Ask me about any sign or type what you want to say.",
+      text: "Namaste! I'm your ISL guide. Ask me about any general, healthcare or support queries.",
       isUser: false,
       time: DateTime.now().subtract(const Duration(minutes: 2)),
     ),
-    ChatMessage(
-      text: "How do I sign 'Thank you'?",
-      isUser: true,
-      time: DateTime.now().subtract(const Duration(minutes: 1)),
-    ),
-    ChatMessage(
-      text: "Great question! For 'Thank you' in ISL: Place your right hand flat near your chin, then move it forward and slightly down. It's a graceful gesture! 🙏",
-      isUser: false,
-      time: DateTime.now().subtract(const Duration(seconds: 55)),
-    ),
+    // ChatMessage(
+    //   text: "How do I sign 'Thank you'?",
+    //   isUser: true,
+    //   time: DateTime.now().subtract(const Duration(minutes: 1)),
+    // ),
+    // ChatMessage(
+    //   text: "Great question! For 'Thank you' in ISL: Place your right hand flat near your chin, then move it forward and slightly down. It's a graceful gesture! 🙏",
+    //   isUser: false,
+    //   time: DateTime.now().subtract(const Duration(seconds: 55)),
+    // ),
   ];
 
   // ── Animation list for new messages ──────────────────────────────────────
@@ -67,6 +71,9 @@ class _ChatbotScreenState extends State<ChatbotScreen>
   final TextEditingController _inputController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   final FocusNode _focusNode = FocusNode();
+
+  final String baseUrl = "https://lightfast-diane-gruntled.ngrok-free.dev";
+
 
   @override
   void initState() {
@@ -124,20 +131,70 @@ class _ChatbotScreenState extends State<ChatbotScreen>
     _focusNode.unfocus();
 
     // Simulate bot typing delay + response
-    _simulateBotResponse(text);
+    _getGeminiResponse(text);
+
   }
 
   // ── Simulate sign camera detection (placeholder) ─────────────────────────
-  void _triggerSignDetection() {
-    // TODO: Open camera stream and process ISL detection
-    _addNewMessage(ChatMessage(
-      text: 'HELLO',
-      isUser: true,
-      isSign: true,
-      time: DateTime.now(),
-    ));
-    _simulateBotResponse('HELLO');
+  Future<void> _triggerSignDetection() async {
+    final picker = ImagePicker();
+
+    final XFile? video =
+    await picker.pickVideo(source: ImageSource.camera);
+
+    if (video == null) return;
+
+    setState(() => _isTyping = true);
+
+    try {
+      var request = http.MultipartRequest(
+        "POST",
+        Uri.parse("https://alethea-cephalalgic-elise.ngrok-free.dev/predict"),
+      );
+
+      request.files.add(
+        await http.MultipartFile.fromPath(
+          "video",
+          video.path,
+        ),
+      );
+
+      var streamedResponse = await request.send();
+      var response = await http.Response.fromStream(streamedResponse);
+
+      final data = jsonDecode(response.body);
+
+      final predictedLabel = data["label"];
+      final confidence = data["confidence"];
+
+      setState(() => _isTyping = false);
+
+      if (predictedLabel != null) {
+        _inputController.text = predictedLabel;
+
+        _inputController.selection = TextSelection.fromPosition(
+          TextPosition(offset: _inputController.text.length),
+        );
+
+        _focusNode.requestFocus();
+      } else {
+        _addNewMessage(ChatMessage(
+          text: "Low confidence sign detection. Please try again.",
+          isUser: false,
+          time: DateTime.now(),
+        ));
+      }
+    } catch (e) {
+      setState(() => _isTyping = false);
+
+      _addNewMessage(ChatMessage(
+        text: "Sign detection failed.",
+        isUser: false,
+        time: DateTime.now(),
+      ));
+    }
   }
+
 
   // ── Add a message to the chat + animate it in ─────────────────────────────
   void _addNewMessage(ChatMessage message) {
@@ -167,6 +224,37 @@ class _ChatbotScreenState extends State<ChatbotScreen>
         time: DateTime.now(),
       ));
     });
+  }
+
+  Future<void> _getGeminiResponse(String userInput) async {
+    setState(() => _isTyping = true);
+
+    try {
+      final response = await http.post(
+        Uri.parse("$baseUrl/chat"),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"message": userInput}),
+      );
+
+      final data = jsonDecode(response.body);
+      final botReply = data["reply"];
+
+      setState(() => _isTyping = false);
+
+      _addNewMessage(ChatMessage(
+        text: botReply ?? "Sorry, I couldn't respond.",
+        isUser: false,
+        time: DateTime.now(),
+      ));
+    } catch (e) {
+      setState(() => _isTyping = false);
+
+      _addNewMessage(ChatMessage(
+        text: "Backend connection error.",
+        isUser: false,
+        time: DateTime.now(),
+      ));
+    }
   }
 
   String _generateBotReply(String input) {
@@ -323,12 +411,12 @@ class _ChatbotScreenState extends State<ChatbotScreen>
               ),
 
               // ── Info button ─────────────────────────────────────────────
-              IconButton(
-                icon: const Icon(Icons.info_outline_rounded),
-                color: AppColors.textSecondary,
-                tooltip: 'About ISL Guide',
-                onPressed: () {},
-              ),
+              // IconButton(
+              //   icon: const Icon(Icons.info_outline_rounded),
+              //   color: AppColors.textSecondary,
+              //   tooltip: 'About ISL Guide',
+              //   onPressed: () {},
+              // ),
             ],
           ),
         ),
@@ -455,12 +543,13 @@ class _ChatbotScreenState extends State<ChatbotScreen>
                       ],
                     ),
                     padding: const EdgeInsets.all(12),
-                    child: SvgPicture.asset(
-                      'assets/svg/hand_camera.svg',
-                      colorFilter: const ColorFilter.mode(
-                        Colors.white,
-                        BlendMode.srcIn,
-                      ),
+                    child: Image.asset(
+                      'assets/images/camera.png',
+                      fit: BoxFit.contain,
+                      // colorFilter: const ColorFilter.mode(
+                      //   Colors.white,
+                      //   BlendMode.srcIn,
+                      // ),
                     ),
                   ),
                 ),
@@ -481,7 +570,7 @@ class _ChatbotScreenState extends State<ChatbotScreen>
                     style: Theme.of(context).textTheme.bodyLarge,
                     onSubmitted: (_) => _sendMessage(),
                     decoration: InputDecoration(
-                      hintText: 'Type or describe a sign…',
+                      hintText: 'Ask anything…',
                       suffixIcon: Icon(
                         Icons.emoji_emotions_outlined,
                         color: AppColors.textSecondary.withOpacity(0.6),

@@ -23,6 +23,8 @@ import 'screens/main_navigation.dart';
 import 'screens/educational_hub_screen.dart';
 import 'screens/placeholder_screens.dart';
 import 'screens/record_screen.dart';
+import 'screens/isl_avatar_screen.dart';
+import 'screens/recent_signs_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -81,6 +83,8 @@ class ISLConnectApp extends StatelessWidget {
 
       // ── Routes ───────────────────────────────────────────────────────
       onGenerateRoute: (settings) {
+        final args = settings.arguments as Map<String, dynamic>?;
+
         switch (settings.name) {
           case '/splash':
             return _fadeRoute(const SplashScreen(), settings);
@@ -90,6 +94,14 @@ class ISLConnectApp extends StatelessWidget {
 
           case '/detection':
             return _slideRoute(const RecordScreen(), settings);
+
+
+          case '/avatar':
+            return _slideRoute(
+                AvatarViewerScreen(
+                  initialCategory: args?['category'] ?? 'actions',
+                  initialSign: args?['sign'],
+                ), settings);
 
           case '/practice':
             return _slideRoute(
@@ -105,13 +117,7 @@ class ISLConnectApp extends StatelessWidget {
 
           case '/recent':
             return _slideRoute(
-              const GenericPlaceholderScreen(
-                title: 'Recent Signs',
-                icon: Icons.history_rounded,
-                color: AppColors.primary,
-                description:
-                'Your detected and practiced signs will be\nlogged and displayed here.',
-              ),
+              const RecentSignsScreen(),
               settings,
             );
 
@@ -128,6 +134,7 @@ class ISLConnectApp extends StatelessWidget {
               LessonPlaceholderScreen(title: title, color: color),
               settings,
             );
+
 
           default:
             return _fadeRoute(
