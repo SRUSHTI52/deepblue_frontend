@@ -25,7 +25,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../theme/app_theme.dart';
 
 // ── Hosted URL — swap this if the site moves ─────────────────────────────────
-const String _kAvatarUrl = 'https://srushti52.github.io/Gespy_DeepBlue/';
+const String _kAvatarUrl = 'https://web-production-58af7.up.railway.app/';
 
 class AvatarViewerScreen extends StatefulWidget {
   /// Sidebar tab to open first: 'actions' | 'alpha' | 'nums'
