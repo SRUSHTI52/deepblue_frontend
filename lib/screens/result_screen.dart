@@ -432,88 +432,88 @@ class _ResultScreenState extends State<ResultScreen>
     return Column(
       children: [
         // Record Again — primary
-        TapScaleWidget(
-          onTap: () {
-            // Pop all the way back to Home (route.isFirst = MainNavigation)
-            Navigator.popUntil(context, (route) => route.isFirst);
-          },
-          child: Container(
-            width: double.infinity,
-            height: 56,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [AppColors.primary, AppColors.accent],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-              ),
-              borderRadius: BorderRadius.circular(18),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.primary.withOpacity(0.35),
-                  blurRadius: 18,
-                  offset: const Offset(0, 6),
-                ),
-              ],
-            ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.fiber_manual_record_rounded,
-                    color: Colors.white, size: 18),
-                SizedBox(width: 10),
-                Text(
-                  'Record Again',
-                  style: TextStyle(
-                    fontFamily: 'Nunito',
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        // TapScaleWidget(
+        //   onTap: () {
+        //     // Pop all the way back to Home (route.isFirst = MainNavigation)
+        //     Navigator.popUntil(context, (route) => route.isFirst);
+        //   },
+        //   child: Container(
+        //     width: double.infinity,
+        //     height: 56,
+        //     decoration: BoxDecoration(
+        //       gradient: const LinearGradient(
+        //         colors: [AppColors.primary, AppColors.accent],
+        //         begin: Alignment.centerLeft,
+        //         end: Alignment.centerRight,
+        //       ),
+        //       borderRadius: BorderRadius.circular(18),
+        //       boxShadow: [
+        //         BoxShadow(
+        //           color: AppColors.primary.withOpacity(0.35),
+        //           blurRadius: 18,
+        //           offset: const Offset(0, 6),
+        //         ),
+        //       ],
+        //     ),
+        //     child: const Row(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         Icon(Icons.fiber_manual_record_rounded,
+        //             color: Colors.white, size: 18),
+        //         SizedBox(width: 10),
+        //         Text(
+        //           'Record Again',
+        //           style: TextStyle(
+        //             fontFamily: 'Nunito',
+        //             color: Colors.white,
+        //             fontSize: 16,
+        //             fontWeight: FontWeight.w800,
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
 
         const SizedBox(height: 12),
 
         // Learn This Sign — secondary outlined
-        TapScaleWidget(
-          onTap: () {
-            // Navigate to Educational Hub (tab index 1)
-            Navigator.popUntil(context, (route) => route.isFirst);
-            // TODO: pass tab switch signal via callback / provider if needed
-          },
-          child: Container(
-            width: double.infinity,
-            height: 56,
-            decoration: BoxDecoration(
-              color: AppColors.surfaceVariant,
-              borderRadius: BorderRadius.circular(18),
-              border: Border.all(
-                color: AppColors.primary.withOpacity(0.25),
-                width: 1.5,
-              ),
-            ),
-            child: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.menu_book_rounded,
-                    color: AppColors.primary, size: 20),
-                SizedBox(width: 10),
-                Text(
-                  'Learn This Sign',
-                  style: TextStyle(
-                    fontFamily: 'Nunito',
-                    color: AppColors.primary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
+        // TapScaleWidget(
+        //   onTap: () {
+        //     // Navigate to Educational Hub (tab index 1)
+        //     Navigator.popUntil(context, (route) => route.isFirst);
+        //     // TODO: pass tab switch signal via callback / provider if needed
+        //   },
+        //   child: Container(
+        //     width: double.infinity,
+        //     height: 56,
+        //     decoration: BoxDecoration(
+        //       color: AppColors.surfaceVariant,
+        //       borderRadius: BorderRadius.circular(18),
+        //       border: Border.all(
+        //         color: AppColors.primary.withOpacity(0.25),
+        //         width: 1.5,
+        //       ),
+        //     ),
+        //     child: const Row(
+        //       mainAxisAlignment: MainAxisAlignment.center,
+        //       children: [
+        //         Icon(Icons.menu_book_rounded,
+        //             color: AppColors.primary, size: 20),
+        //         SizedBox(width: 10),
+        //         Text(
+        //           'Learn This Sign',
+        //           style: TextStyle(
+        //             fontFamily: 'Nunito',
+        //             color: AppColors.primary,
+        //             fontSize: 16,
+        //             fontWeight: FontWeight.w700,
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

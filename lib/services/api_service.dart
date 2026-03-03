@@ -5,7 +5,8 @@ import 'package:http/http.dart' as http;
 class ApiService {
   // ⚠️ IMPORTANT:
   // Use LAN IP if testing on real phone (not localhost)
-  static const String baseUrl = "https://alethea-cephalalgic-elise.ngrok-free.dev";
+  // static const String baseUrl = "https://alethea-cephalalgic-elise.ngrok-free.dev";
+  static const String baseUrl = "https://lightfast-diane-gruntled.ngrok-free.dev";
 
   static Future<Map<String, dynamic>> uploadVideo(File videoFile) async {
     final uri = Uri.parse("$baseUrl/predict");

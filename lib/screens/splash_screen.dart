@@ -104,8 +104,8 @@ class _SplashScreenState extends State<SplashScreen>
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFF4A1ED4), // Deep violet top-left
-              Color(0xFF6C3FF6), // Brand violet center
+              Color(0xFF1E5ED4), // Deep violet top-left
+              Color(0xFF3F6AF6), // Brand violet center
               Color(0xFF00B4D8), // Teal blue bottom-right
             ],
             stops: [0.0, 0.55, 1.0],
@@ -127,8 +127,8 @@ class _SplashScreenState extends State<SplashScreen>
                     child: Transform.scale(
                       scale: _logoScale.value,
                       child: Container(
-                        width: 120,
-                        height: 120,
+                        width: 320,
+                        height: 320,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(16),
@@ -142,7 +142,7 @@ class _SplashScreenState extends State<SplashScreen>
                         ),
                         padding: const EdgeInsets.all(12),
                         child: Image.asset(
-                          'assets/images/logo2-removebg-preview.png',
+                          'assets/images/gespy_logo_final.png',
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -152,62 +152,62 @@ class _SplashScreenState extends State<SplashScreen>
                   const SizedBox(height: 32),
 
                   // ── Tagline: slides up and fades in ─────────────────────
-                  Transform.translate(
-                    offset: Offset(0, _taglineSlide.value),
-                    child: Opacity(
-                      opacity: _taglineOpacity.value,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 32),
-                        child: Text(
-                          'GESPY',
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontFamily: 'Nunito',
-                            fontSize: 28,
-                            fontWeight: FontWeight.w900,
-                            color: Colors.white,
-                            height: 1.25,
-                            letterSpacing: -0.5,
-                            shadows: [
-                              Shadow(
-                                color: Color(0x33000000),
-                                blurRadius: 12,
-                                offset: Offset(0, 4),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 16),
-
-                  // ── ISL brand subtitle ────────────────────────────────
-                  Opacity(
-                    opacity: _subtitleOpacity.value,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          color: Colors.white.withOpacity(0.2),
-                        ),
-                      ),
-                      child: const Text(
-                        'Communicate Freely Through Signs',
-                        style: TextStyle(
-                          fontFamily: 'Nunito',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                          letterSpacing: 1.5,
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Transform.translate(
+                  //   offset: Offset(0, _taglineSlide.value),
+                  //   child: Opacity(
+                  //     opacity: _taglineOpacity.value,
+                  //     child: Padding(
+                  //       padding: const EdgeInsets.symmetric(horizontal: 32),
+                  //       child: Text(
+                  //         'GESPY',
+                  //         textAlign: TextAlign.center,
+                  //         style: const TextStyle(
+                  //           fontFamily: 'Nunito',
+                  //           fontSize: 28,
+                  //           fontWeight: FontWeight.w900,
+                  //           color: Colors.white,
+                  //           height: 1.25,
+                  //           letterSpacing: -0.5,
+                  //           shadows: [
+                  //             Shadow(
+                  //               color: Color(0x33000000),
+                  //               blurRadius: 12,
+                  //               offset: Offset(0, 4),
+                  //             )
+                  //           ],
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  //
+                  // const SizedBox(height: 16),
+                  //
+                  // // ── ISL brand subtitle ────────────────────────────────
+                  // Opacity(
+                  //   opacity: _subtitleOpacity.value,
+                  //   child: Container(
+                  //     padding: const EdgeInsets.symmetric(
+                  //         horizontal: 20, vertical: 8),
+                  //     decoration: BoxDecoration(
+                  //       color: Colors.white.withOpacity(0.15),
+                  //       borderRadius: BorderRadius.circular(30),
+                  //       border: Border.all(
+                  //         color: Colors.white.withOpacity(0.2),
+                  //       ),
+                  //     ),
+                  //     child: const Text(
+                  //       'Communicate Freely Through Signs',
+                  //       style: TextStyle(
+                  //         fontFamily: 'Nunito',
+                  //         fontSize: 14,
+                  //         fontWeight: FontWeight.w600,
+                  //         color: Colors.white,
+                  //         letterSpacing: 1.5,
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
 
                   const Spacer(flex: 3),
 

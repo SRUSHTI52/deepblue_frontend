@@ -149,7 +149,7 @@ class _ChatbotScreenState extends State<ChatbotScreen>
     try {
       var request = http.MultipartRequest(
         "POST",
-        Uri.parse("https://alethea-cephalalgic-elise.ngrok-free.dev/predict"),
+        Uri.parse("https://lightfast-diane-gruntled.ngrok-free.dev/predict"),
       );
 
       request.files.add(

@@ -25,7 +25,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../theme/app_theme.dart';
 
 // ── Hosted URL — swap this if the site moves ─────────────────────────────────
-const String _kAvatarUrl = 'https://srushti52.github.io/isl_avatar_web/';
+const String _kAvatarUrl = 'https://srushti52.github.io/Gespy_DeepBlue/';
 
 class AvatarViewerScreen extends StatefulWidget {
   /// Sidebar tab to open first: 'actions' | 'alpha' | 'nums'
@@ -281,7 +281,8 @@ class _AvatarViewerScreenState extends State<AvatarViewerScreen> {
                   const SizedBox(width: 6),
                   Flexible(
                     child: Text(
-                      'srushti52.github.io/isl_avatar_web',
+                      // 'srushti52.github.io/isl_avatar_web',
+                      'srushti52.github.io/Gespy_DeepBlue/',
                       style: TextStyle(
                         fontFamily: 'Nunito',
                         fontSize: 11,
@@ -297,14 +298,14 @@ class _AvatarViewerScreenState extends State<AvatarViewerScreen> {
 
             const SizedBox(height: 10),
 
-            Text(
-              'Fetching Three.js models from the web…',
-              style: TextStyle(
-                fontFamily: 'Nunito',
-                fontSize: 12,
-                color: Colors.white.withOpacity(0.25),
-              ),
-            ),
+            // Text(
+            //   'Fetching Three.js models from the web…',
+            //   style: TextStyle(
+            //     fontFamily: 'Nunito',
+            //     fontSize: 12,
+            //     color: Colors.white.withOpacity(0.25),
+            //   ),
+            // ),
 
             const Spacer(),
 
@@ -323,7 +324,7 @@ class _AvatarViewerScreenState extends State<AvatarViewerScreen> {
                   ),
                   const SizedBox(width: 8),
                   const Text(
-                    'ISL CONNECT · 3D AVATAR',
+                    'GESPY · 3D AVATAR',
                     style: TextStyle(
                       fontFamily: 'Nunito',
                       color: Colors.white24,
@@ -509,7 +510,7 @@ class _AvatarViewerScreenState extends State<AvatarViewerScreen> {
             Padding(
               padding: const EdgeInsets.only(bottom: 24),
               child: Text(
-                'ISL CONNECT · 3D AVATAR',
+                'GESPY · 3D AVATAR',
                 style: TextStyle(
                   fontFamily: 'Nunito',
                   color: Colors.white.withOpacity(0.12),
@@ -603,7 +604,7 @@ class _RingPainter extends CustomPainter {
     );
 
     // 🤟 centred inside rings
-    const span = TextSpan(text: '🤟', style: TextStyle(fontSize: 24));
+    const span = TextSpan(text: '', style: TextStyle(fontSize: 24));
     final tp = TextPainter(text: span, textDirection: TextDirection.ltr)
       ..layout();
     tp.paint(

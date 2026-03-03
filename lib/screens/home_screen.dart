@@ -77,6 +77,7 @@ class _HomeScreenState extends State<HomeScreen>
         slivers: [
           // ── Custom SliverAppBar with gradient header ──────────────────────
           SliverAppBar(
+            automaticallyImplyLeading: false,
             expandedHeight: 160,
             floating: false,
             pinned: false,
@@ -165,8 +166,8 @@ class _HomeScreenState extends State<HomeScreen>
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color(0xFF4A1ED4),
-            Color(0xFF6C3FF6),
+            Color(0xFF2066BC),
+            Color(0xFF477CE4),
             Color(0xFF00C9B1),
           ],
           stops: [0.0, 0.6, 1.0],
@@ -202,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen>
                           ),
                         ),
                         Text(
-                          'Freely 🤟',
+                          'Freely',
                           style: const TextStyle(
                             fontFamily: 'Nunito',
                             fontSize: 28,
@@ -272,7 +273,7 @@ class _HomeScreenState extends State<HomeScreen>
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xFF6C3FF6),
+                Color(0xFF3F88F6),
                 Color(0xFF00C9B1),
               ],
             ),

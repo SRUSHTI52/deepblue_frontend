@@ -7,9 +7,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppColors {
   // ── Primary brand colors ──────────────────────────────────────────────────
-  static const Color primary = Color(0xFF6C3FF6);       // Deep violet
-  static const Color primaryLight = Color(0xFF9B72F5);  // Soft violet
-  static const Color primaryDark = Color(0xFF4A1ED4);   // Rich violet
+  static const Color primary = Color(0xFF3F6EE4);       // Deep violet
+  static const Color primaryLight = Color(0xFF94B9FF);  // Soft violet
+  static const Color primaryDark = Color(0xFF2362FF);   // Rich violet
 
   // ── Accent colors ─────────────────────────────────────────────────────────
   static const Color accent = Color(0xFF00C9B1);        // Teal / ISL green
@@ -17,7 +17,7 @@ class AppColors {
   static const Color accentWarm = Color(0xFFFF6B6B);    // Warm coral for emergency
 
   // ── Semantic category colors ──────────────────────────────────────────────
-  static const Color categoryAlphabet = Color(0xFF6C3FF6);   // Violet
+  static const Color categoryAlphabet = Color(0xFF9B7BFF);   // Violet
   static const Color categoryNumbers = Color(0xFF00C9B1);    // Teal
   static const Color categoryActions = Color(0xFF4CAF50);    // Green
   static const Color categoryEmotions = Color(0xFFFF6B6B);   // Coral
@@ -36,7 +36,7 @@ class AppColors {
 
   // ── Bot / Chat colors ─────────────────────────────────────────────────────
   static const Color botBubble = Color(0xFFEDE7FF);
-  static const Color userBubble = Color(0xFF6C3FF6);
+  static const Color userBubble = Color(0xFFB198FF);
   static const Color botBubbleText = Color(0xFF1A1035);
   static const Color userBubbleText = Color(0xFFFFFFFF);
 
