@@ -46,7 +46,9 @@ dependencies:
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   percent_indicator: ^4.2.2
-  webview_flutter: ^4.7.0
+  flutter_inappwebview: ^6.0.0
+  permission_handler: ^11.0.0
+#  webview_flutter: ^4.7.0
 
   # Optional Lottie JSON animations
 dev_dependencies:
@@ -79,6 +81,7 @@ flutter:
      - assets/data/education_content.json
      - assets/isl_avatar_viewer.html
 
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 
@@ -102,5 +105,4 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+  # For details regarding fonts from 
