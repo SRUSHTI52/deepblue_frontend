@@ -1,16 +1,9 @@
-// lib/screens/placeholder_screens.dart
-// ISL Connect – Placeholder screens for backend-integrated workflows.
-// These represent routes that will be replaced once the ML backend is ready.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../theme/app_theme.dart';
 import '../widgets/app_widgets.dart';
+import '../utils/localization_ext.dart';
 
-// ─────────────────────────────────────────────────────────────────────────────
-/// Sign Detection Placeholder Screen
-/// Shows a camera viewfinder UI mockup until camera/ML integration is complete.
-// ─────────────────────────────────────────────────────────────────────────────
 class DetectionPlaceholderScreen extends StatefulWidget {
   const DetectionPlaceholderScreen({super.key});
 
@@ -22,12 +15,14 @@ class DetectionPlaceholderScreen extends StatefulWidget {
 class _DetectionPlaceholderScreenState
     extends State<DetectionPlaceholderScreen>
     with SingleTickerProviderStateMixin {
+
   late AnimationController _scanController;
   late Animation<double> _scanAnim;
 
   @override
   void initState() {
     super.initState();
+
     _scanController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 2000),
@@ -46,36 +41,37 @@ class _DetectionPlaceholderScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
-        title: const Text(
-          'Sign Detection',
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          l10n.detectionScreenTitle,
+          style: const TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, color: Colors.white),
           onPressed: () => Navigator.pop(context),
-          tooltip: 'Go back',
         ),
         actions: [
           IconButton(
             icon: const Icon(Icons.flash_off_rounded, color: Colors.white),
             onPressed: () {},
-            tooltip: 'Toggle flashlight',
+            tooltip: l10n.detectionToggleFlash,
           ),
           IconButton(
             icon: const Icon(Icons.flip_camera_ios_rounded, color: Colors.white),
             onPressed: () {},
-            tooltip: 'Switch camera',
+            tooltip: l10n.detectionSwitchCamera,
           ),
         ],
       ),
       body: Stack(
         children: [
-          // ── Camera viewfinder mockup ──────────────────────────────────
+
           Container(
             color: const Color(0xFF0A0A0A),
             width: double.infinity,
@@ -84,26 +80,27 @@ class _DetectionPlaceholderScreenState
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // ── Corner frame overlay ────────────────────────────────
+
                   SizedBox(
                     width: 280,
                     height: 320,
                     child: CustomPaint(
-                      painter: _FrameCornerPainter(
-                        color: AppColors.accent,
-                      ),
+                      painter: _FrameCornerPainter(color: AppColors.accent),
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+
                             Icon(
                               Icons.pan_tool_outlined,
                               color: Colors.white.withOpacity(0.3),
                               size: 72,
                             ),
+
                             const SizedBox(height: 16),
+
                             Text(
-                              'Position your hand\nhere',
+                              l10n.detectionPositionHand,
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'Nunito',
@@ -120,7 +117,6 @@ class _DetectionPlaceholderScreenState
 
                   const SizedBox(height: 32),
 
-                  // ── Scan line animation ─────────────────────────────────
                   AnimatedBuilder(
                     animation: _scanAnim,
                     builder: (_, __) => Container(
@@ -143,7 +139,6 @@ class _DetectionPlaceholderScreenState
             ),
           ),
 
-          // ── Bottom detection result panel ─────────────────────────────
           Positioned(
             bottom: 0,
             left: 0,
@@ -160,7 +155,7 @@ class _DetectionPlaceholderScreenState
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // ── Status ─────────────────────────────────────────────
+
                   Row(
                     children: [
                       Container(
@@ -172,9 +167,9 @@ class _DetectionPlaceholderScreenState
                         ),
                       ),
                       const SizedBox(width: 8),
-                      const Text(
-                        'Waiting for sign…',
-                        style: TextStyle(
+                      Text(
+                        l10n.detectionWaiting,
+                        style: const TextStyle(
                           fontFamily: 'Nunito',
                           color: Colors.white70,
                           fontSize: 14,
@@ -183,9 +178,9 @@ class _DetectionPlaceholderScreenState
                       ),
                     ],
                   ),
+
                   const SizedBox(height: 16),
 
-                  // ── Detected sign placeholder ──────────────────────────
                   Container(
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
@@ -197,13 +192,20 @@ class _DetectionPlaceholderScreenState
                     ),
                     child: Row(
                       children: [
-                        Icon(Icons.sign_language_rounded,
-                            color: AppColors.accent, size: 32),
+
+                        const Icon(
+                          Icons.sign_language_rounded,
+                          color: AppColors.accent,
+                          size: 32,
+                        ),
+
                         const SizedBox(width: 16),
+
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
+                          children: [
+
+                            const Text(
                               '—',
                               style: TextStyle(
                                 fontFamily: 'Nunito',
@@ -212,9 +214,10 @@ class _DetectionPlaceholderScreenState
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
+
                             Text(
-                              'Detected sign appears here',
-                              style: TextStyle(
+                              l10n.detectionPlaceholderLabel,
+                              style: const TextStyle(
                                 fontFamily: 'Nunito',
                                 color: Colors.white38,
                                 fontSize: 12,
@@ -225,9 +228,9 @@ class _DetectionPlaceholderScreenState
                       ],
                     ),
                   ),
+
                   const SizedBox(height: 16),
 
-                  // ── Action hint ────────────────────────────────────────
                   Center(
                     child: Text(
                       'Camera integration connects here',
@@ -249,9 +252,9 @@ class _DetectionPlaceholderScreenState
   }
 }
 
-// ── Frame corner painter for camera viewfinder ───────────────────────────────
 class _FrameCornerPainter extends CustomPainter {
   final Color color;
+
   const _FrameCornerPainter({required this.color});
 
   @override
@@ -265,55 +268,24 @@ class _FrameCornerPainter extends CustomPainter {
     const cornerLen = 30.0;
     const radius = 12.0;
 
-    // Top-left
-    canvas.drawLine(
-        Offset(radius, 0), Offset(radius + cornerLen, 0), paint);
-    canvas.drawLine(
-        Offset(0, radius), Offset(0, radius + cornerLen), paint);
-    canvas.drawArc(
-        Rect.fromLTWH(0, 0, radius * 2, radius * 2),
-        3.14159, 0.5 * 3.14159, false, paint);
+    canvas.drawLine(Offset(radius, 0), Offset(radius + cornerLen, 0), paint);
+    canvas.drawLine(Offset(0, radius), Offset(0, radius + cornerLen), paint);
 
-    // Top-right
-    canvas.drawLine(Offset(size.width - radius - cornerLen, 0),
-        Offset(size.width - radius, 0), paint);
-    canvas.drawLine(Offset(size.width, radius),
-        Offset(size.width, radius + cornerLen), paint);
-    canvas.drawArc(
-        Rect.fromLTWH(size.width - radius * 2, 0, radius * 2, radius * 2),
-        1.5 * 3.14159, 0.5 * 3.14159, false, paint);
-
-    // Bottom-left
-    canvas.drawLine(Offset(0, size.height - radius - cornerLen),
-        Offset(0, size.height - radius), paint);
-    canvas.drawLine(Offset(radius, size.height),
-        Offset(radius + cornerLen, size.height), paint);
-    canvas.drawArc(
-        Rect.fromLTWH(0, size.height - radius * 2, radius * 2, radius * 2),
-        0.5 * 3.14159, 0.5 * 3.14159, false, paint);
-
-    // Bottom-right
     canvas.drawLine(
-        Offset(size.width - radius - cornerLen, size.height),
-        Offset(size.width - radius, size.height),
+        Offset(size.width - radius - cornerLen, 0),
+        Offset(size.width - radius, 0),
         paint);
+
     canvas.drawLine(
-        Offset(size.width, size.height - radius - cornerLen),
-        Offset(size.width, size.height - radius),
+        Offset(size.width, radius),
+        Offset(size.width, radius + cornerLen),
         paint);
-    canvas.drawArc(
-        Rect.fromLTWH(size.width - radius * 2,
-            size.height - radius * 2, radius * 2, radius * 2),
-        0, 0.5 * 3.14159, false, paint);
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
 
-// ─────────────────────────────────────────────────────────────────────────────
-/// Generic Placeholder Screen for Practice Mode and Recent Signs
-// ─────────────────────────────────────────────────────────────────────────────
 class GenericPlaceholderScreen extends StatelessWidget {
   final String title;
   final IconData icon;
@@ -330,6 +302,8 @@ class GenericPlaceholderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = context.l10n;
+
     return Scaffold(
       backgroundColor: AppColors.background,
       appBar: AppBar(
@@ -345,6 +319,7 @@ class GenericPlaceholderScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+
               FadeSlideIn(
                 child: Container(
                   width: 110,
@@ -356,9 +331,10 @@ class GenericPlaceholderScreen extends StatelessWidget {
                   child: Icon(icon, color: color, size: 52),
                 ),
               ),
+
               const SizedBox(height: 28),
+
               FadeSlideIn(
-                delay: const Duration(milliseconds: 100),
                 child: Text(
                   title,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -367,28 +343,30 @@ class GenericPlaceholderScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
+
               const SizedBox(height: 12),
+
               FadeSlideIn(
-                delay: const Duration(milliseconds: 180),
                 child: Text(
                   description,
                   style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.center,
                 ),
               ),
+
               const SizedBox(height: 32),
+
               FadeSlideIn(
-                delay: const Duration(milliseconds: 260),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 20, vertical: 12),
+                  padding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                   decoration: BoxDecoration(
                     color: color.withOpacity(0.08),
                     borderRadius: BorderRadius.circular(16),
                     border: Border.all(color: color.withOpacity(0.2)),
                   ),
                   child: Text(
-                    '🚧 Backend integration pending',
+                    l10n.genericBackendPending,
                     style: TextStyle(
                       fontFamily: 'Nunito',
                       color: color,

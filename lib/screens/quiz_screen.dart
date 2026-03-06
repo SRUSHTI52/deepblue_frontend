@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../utils/localization_ext.dart';
 
 class QuizScreen extends StatefulWidget {
   final String categoryId;
@@ -38,8 +39,16 @@ class _QuizScreenState extends State<QuizScreen> {
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
-          title: const Text("Quiz Completed"),
-          content: Text("Your score: $score / ${questions.length}"),
+          title: Text(context.l10n.quizCompleted),
+          content: Text(
+            context.l10n.quizScore(score, questions.length),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("OK"),
+            )
+          ],
         ),
       );
     }
@@ -50,12 +59,17 @@ class _QuizScreenState extends State<QuizScreen> {
     var q = questions[currentQuestion];
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Quiz")),
+      appBar: AppBar(
+        title: Text(context.l10n.quizTitle),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            Text(q["question"], style: const TextStyle(fontSize: 18)),
+            Text(
+              q["question"],
+              style: const TextStyle(fontSize: 18),
+            ),
             const SizedBox(height: 20),
             ...List.generate(
               q["options"].length,

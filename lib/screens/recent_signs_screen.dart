@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_theme.dart';
+import '../utils/localization_ext.dart';
 
 class RecentSignsScreen extends StatelessWidget {
   const RecentSignsScreen({super.key});
@@ -21,8 +22,8 @@ class RecentSignsScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         foregroundColor: AppColors.textPrimary,
-        title: const Text(
-          "Recent Signs",
+        title: Text(
+          context.l10n.recentSignsTitle,
           style: TextStyle(
             fontWeight: FontWeight.w800,
           ),

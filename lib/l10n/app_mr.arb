@@ -1,0 +1,170 @@
+{
+  "@@locale": "mr",
+  "splashBranding": "भारतीय सांकेतिक भाषा",
+  "navHome": "मुख्यपृष्ठ",
+  "navLearn": "शिका",
+  "navChat": "चॅट",
+  "navHomeTooltip": "सांकेतिक ओळख मुख्यपृष्ठ",
+  "navLearnTooltip": "शैक्षणिक केंद्र - ISL श्रेणी",
+  "navChatTooltip": "ISL चॅटबॉट सहाय्यक",
+  "homeCommunicate": "संवाद साधा",
+  "homeFreely": "मोकळेपणाने",
+  "homeSubtitle": "भारतीय सांकेतिक भाषा सोपी केली",
+  "homeStartDetection": "सांकेतिक ओळख सुरू करा",
+  "homeStartDetectionHint": "सुरू करण्यासाठी कॅमेरा हातांकडे वळवा",
+  "homeStartDetectionLabel": "सांकेतिक ओळख सुरू करा. कॅमेरा उघडण्यासाठी आणि चिन्हे ओळखण्यास प्रारंभ करण्यासाठी टॅप करा.",
+  "homeQuickAccess": "त्वरित प्रवेश",
+  "homePracticeMode": "सराव मोड",
+  "homeRecentSigns": "अलीकडील चिन्हे",
+  "homeTipTitle": "आजचा सल्ला",
+  "homeTipBody": "\"हॅलो\" चिन्हाचा सराव करा: उघडलेली तळहात बाजूला हलवा.",
+  "eduHubTitle": "शैक्षणिक केंद्र",
+  "eduHubCategoriesToExplore": "{count} श्रेण्या अन्वेषणासाठी",
+  "@eduHubCategoriesToExplore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eduHubInteractiveLearning": "परस्परसंवादी शिक्षण",
+  "eduHubLearnWith3D": "3D अवतारासह शिका",
+  "eduHubAvatarDesc": "प्रत्येक ISL चिन्ह पूर्ण 3D मध्ये दाखवणारा अॅनिमेटेड अवतार पहा. कॅमेरा फिरवा, प्लेबॅक गती समायोजित करा आणि आपल्या गतीने चिन्हे अन्वेषण करा.",
+  "eduHubOpen3DViewer": "3D दर्शक उघडा",
+  "eduHubSignCategories": "चिन्ह श्रेण्या",
+  "eduHubTopicsCount": "{count} विषय",
+  "@eduHubTopicsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eduHubAvatarSemantics": "परस्परसंवादी 3D अवतारासह भारतीय सांकेतिक भाषा शिका. अन्वेषणासाठी टॅप करा.",
+  "categoryAlphabets": "अक्षरे",
+  "categoryAlphabetsDesc": "A ते Z हात चिन्हे",
+  "categoryNumbers": "संख्या",
+  "categoryNumbersDesc": "० ते १०० चिन्हे",
+  "categoryDailyActions": "दैनंदिन क्रिया",
+  "categoryDailyActionsDesc": "खाणे, पिणे, जाणे आणि अधिक",
+  "categoryEmotions": "भावना",
+  "categoryEmotionsDesc": "आनंदी, दु:खी, रागावलेला...",
+  "categoryEmergency": "आपत्कालीन",
+  "categoryEmergencyDesc": "मदत, धोका, थांबा",
+  "categoryGreetings": "शुभेच्छा",
+  "categoryGreetingsDesc": "नमस्कार, धन्यवाद, अलविदा",
+  "lessonComingSoonTitle": "{title} धडे",
+  "@lessonComingSoonTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonComingSoon": "लवकरच येत आहे! धड्याची सामग्री\nइथे दिसेल.",
+  "lessonGoBack": "परत जा",
+  "chatbotTitle": "ISL मार्गदर्शक",
+  "chatbotStatus": "माझ्याशी मजकूर किंवा चिन्हात विचारा",
+  "chatbotWelcome": "नमस्ते! मी तुमचा ISL मार्गदर्शक आहे. कोणत्याही सामान्य, आरोग्य किंवा समर्थन प्रश्नांसाठी मला विचारा.",
+  "chatbotInputHint": "काहीही विचारा…",
+  "chatbotCameraLabel": "संकेत ओळखण्यासाठी कॅमेरा वापरा",
+  "chatbotSendLabel": "संदेश पाठवा",
+  "chatbotLowConfidence": "कमी आत्मविश्वासाची संकेत ओळख. कृपया पुन्हा प्रयत्न करा.",
+  "chatbotDetectionFailed": "संकेत ओळख अयशस्वी.",
+  "chatbotBackendError": "बॅकएंड कनेक्शन त्रुटी.",
+  "recordTitle": "संकेत रेकॉर्ड करा",
+  "recordGoBack": "मागे जा",
+  "recordSwitchCamera": "कॅमेरा बदला",
+  "recordPositionHint": "🤚  तुमचा हात फ्रेममध्ये ठेवा",
+  "recordStatusIdle": "रेकॉर्डिंग सुरू करण्यासाठी टॅप करा",
+  "recordStatusRecording": "तुमचा संकेत रेकॉर्ड करत आहे…",
+  "recordStartBtn": "रेकॉर्डिंग सुरू करा",
+  "recordStopBtn": "रेकॉर्डिंग थांबवा",
+  "recordCameraUnavailable": "कॅमेरा उपलब्ध नाही: {error}",
+  "@recordCameraUnavailable": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "previewTitle": "संकेत पूर्वावलोकन",
+  "previewRetake": "पुन्हा घ्या",
+  "previewReplay": "पुन्हा प्ले करा",
+  "previewHint": "पाठवण्यापूर्वी तुमचा संकेत पुनरावलोकन करा",
+  "previewUpload": "अपलोड करा आणि भाकीत करा",
+  "previewAnalysing": "संकेत विश्लेषण करत आहे…",
+  "previewSendingToModel": "ISL मॉडेलकडे पाठवत आहे",
+  "previewPredictionFailed": "भाकीत अयशस्वी: {error}",
+  "@previewPredictionFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "resultTitle": "शोध परिणाम",
+  "resultShare": "परिणाम शेअर करा",
+  "resultBackToPreview": "पूर्वावलोकनाकडे परत",
+  "resultSignDetected": "संकेत यशस्वीरित्या शोधला",
+  "resultPredictedSign": "भाकीत केलेला संकेत",
+  "resultConfidenceScore": "विश्वास गुण",
+  "resultAccurate": "{pct}% अचूक",
+  "@resultAccurate": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "resultHighConfidence": "उच्च आत्मविश्वास",
+  "resultMediumConfidence": "मध्यम आत्मविश्वास",
+  "resultLowConfidence": "कमी आत्मविश्वास",
+  "resultRecordAgain": "पुन्हा रेकॉर्ड करा",
+  "resultFeedbackTitle": "GESPY सुधारण्यास मदत करा",
+  "resultFeedbackQuestion": "\"{label}\" बरोबर होते का?",
+  "@resultFeedbackQuestion": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "resultFeedbackYes": "होय, बरोबर!",
+  "resultFeedbackNo": "नाही, चुकीचे",
+  "resultFeedbackWhatCorrect": "योग्य चिन्ह काय होते?",
+  "resultFeedbackSelectHint": "योग्य चिन्ह निवडा",
+  "resultFeedbackSubmit": "सुधारणा सबमिट करा",
+  "resultFeedbackSubmitting": "प्रतिसाद सबमिट करत आहे...",
+  "resultFeedbackThanks": "पुष्टीसाठी धन्यवाद! 🎉",
+  "resultFeedbackError": "सबमिट करू शकलो नाही. कृपया पुन्हा प्रयत्न करा.",
+  "categoryDetailProgress": "{percent}%",
+  "@categoryDetailProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "quizTitle": "क्विझ",
+  "quizCompleted": "क्विझ पूर्ण",
+  "quizScore": "तुमचा स्कोअर: {score} / {total}",
+  "@quizScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recentSignsTitle": "अलीकडील चिन्हे",
+  "detectionScreenTitle": "चिन्ह ओळख",
+  "detectionToggleFlash": "फ्लॅशलाइट चालू/बंद करा",
+  "detectionSwitchCamera": "कॅमेरा बदला",
+  "detectionPositionHand": "तुमचा हात\nइथे ठेवा",
+  "detectionWaiting": "चिन्हाची प्रतीक्षा…",
+  "detectionPlaceholderLabel": "ओळखलेले चिन्ह इथे दिसेल",
+  "genericBackendPending": "🚧 बॅकएंड एकत्रीकरण प्रलंबित"
+}

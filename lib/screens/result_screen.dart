@@ -27,6 +27,7 @@ import 'package:http/http.dart' as http;
 import '../theme/app_theme.dart';
 import '../widgets/app_widgets.dart';
 import '../models/prediction_response.dart';
+import '../utils/localization_ext.dart';
 
 // ════════════════════════════════════════════════════════════
 // ADAPTIVE LEARNING SERVICE
@@ -129,9 +130,11 @@ class _ResultScreenState extends State<ResultScreen>
   }
 
   String _confidenceLabel(double confidence) {
-    if (confidence >= 0.80) return 'High confidence';
-    if (confidence >= 0.50) return 'Medium confidence';
-    return 'Low confidence';
+    final l10n = context.l10n;
+
+    if (confidence >= 0.80) return l10n.resultHighConfidence;
+    if (confidence >= 0.50) return l10n.resultMediumConfidence;
+    return l10n.resultLowConfidence;
   }
 
   @override
@@ -215,11 +218,11 @@ class _ResultScreenState extends State<ResultScreen>
             icon: const Icon(Icons.arrow_back_ios_rounded),
             color: AppColors.textPrimary,
             onPressed: () => Navigator.pop(context),
-            tooltip: 'Back to preview',
+              tooltip: context.l10n.resultBackToPreview
           ),
           Expanded(
             child: Text(
-              'Detection Result',
+              context.l10n.resultTitle,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(
                 fontWeight: FontWeight.w800,
@@ -230,7 +233,7 @@ class _ResultScreenState extends State<ResultScreen>
             icon: const Icon(Icons.share_outlined),
             color: AppColors.textSecondary,
             onPressed: () {},
-            tooltip: 'Share result',
+            tooltip: context.l10n.resultShare,
           ),
         ],
       ),
@@ -259,8 +262,8 @@ class _ResultScreenState extends State<ResultScreen>
             ),
           ),
           const SizedBox(width: 8),
-          const Text(
-            'Sign Successfully Detected',
+          Text(
+            context.l10n.resultSignDetected,
             style: TextStyle(
               fontFamily: 'Nunito',
               color: AppColors.categoryActions,
@@ -309,7 +312,7 @@ class _ResultScreenState extends State<ResultScreen>
           ),
           const SizedBox(height: 16),
           Text(
-            'Predicted Sign',
+            context.l10n.resultPredictedSign,
             style: TextStyle(
               fontFamily: 'Nunito',
               color: Colors.white.withOpacity(0.7),
@@ -388,7 +391,7 @@ class _ResultScreenState extends State<ResultScreen>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Confidence Score',
+                  context.l10n.resultConfidenceScore,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w700,
                     color: AppColors.textPrimary,
@@ -396,7 +399,7 @@ class _ResultScreenState extends State<ResultScreen>
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '$pct% accurate',
+                  context.l10n.resultAccurate(pct),
                   style: TextStyle(
                     fontFamily: 'Nunito',
                     fontSize: 22,
@@ -454,14 +457,14 @@ class _ResultScreenState extends State<ResultScreen>
                 ),
               ],
             ),
-            child: const Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(Icons.fiber_manual_record_rounded,
                     color: Colors.white, size: 18),
                 SizedBox(width: 10),
                 Text(
-                  'Record Again',
+                  context.l10n.resultRecordAgain,
                   style: TextStyle(
                     fontFamily: 'Nunito',
                     color: Colors.white,
@@ -560,7 +563,7 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
     } else {
       setState(() {
         _status  = _FeedbackStatus.error;
-        _message = 'Could not submit. Please try again.';
+        _message = context.l10n.resultFeedbackError;
       });
     }
   }
@@ -601,7 +604,7 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
               ),
               const SizedBox(width: 10),
               Text(
-                'Help Improve GESPY',
+                context.l10n.resultFeedbackTitle,
                 style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w700,
                   color: AppColors.textPrimary,
@@ -628,7 +631,7 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Was "${widget.predictedLabel}" correct?',
+              context.l10n.resultFeedbackQuestion(widget.predictedLabel),
               style: const TextStyle(
                 fontFamily: 'Nunito',
                 fontSize: 14,
@@ -653,14 +656,14 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
                           width: 1.5,
                         ),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.thumb_up_rounded,
                               color: AppColors.categoryActions, size: 18),
                           SizedBox(width: 8),
                           Text(
-                            'Yes, correct!',
+                            context.l10n.resultFeedbackYes,
                             style: TextStyle(
                               fontFamily: 'Nunito',
                               color: AppColors.categoryActions,
@@ -688,14 +691,14 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
                           width: 1.5,
                         ),
                       ),
-                      child: const Row(
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Icon(Icons.thumb_down_rounded,
                               color: AppColors.accentWarm, size: 18),
                           SizedBox(width: 8),
                           Text(
-                            'No, wrong',
+                            context.l10n.resultFeedbackNo,
                             style: TextStyle(
                               fontFamily: 'Nunito',
                               color: AppColors.accentWarm,
@@ -718,8 +721,8 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'What was the correct sign?',
+            Text(
+              context.l10n.resultFeedbackWhatCorrect,
               style: TextStyle(
                 fontFamily: 'Nunito',
                 fontSize: 14,
@@ -741,7 +744,7 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 14, vertical: 12,
                 ),
-                hintText: 'Select the correct sign',
+                hintText: context.l10n.resultFeedbackSelectHint,
                 hintStyle: const TextStyle(
                   fontFamily: 'Nunito',
                   fontSize: 14,
@@ -780,8 +783,8 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
                     borderRadius: BorderRadius.circular(14),
                   ),
                 ),
-                child: const Text(
-                  'Submit Correction',
+                child: Text(
+                  context.l10n.resultFeedbackSubmit,
                   style: TextStyle(
                     fontFamily: 'Nunito',
                     fontWeight: FontWeight.w800,
@@ -795,7 +798,7 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
 
     // ── Loading ───────────────────────────────────────────────────────────
       case _FeedbackStatus.loading:
-        return const Padding(
+        return Padding(
           padding: EdgeInsets.symmetric(vertical: 12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -809,7 +812,7 @@ class _FeedbackSectionState extends State<_FeedbackSection> {
               ),
               SizedBox(width: 12),
               Text(
-                'Submitting feedback...',
+                context.l10n.resultFeedbackSubmitting,
                 style: TextStyle(
                   fontFamily: 'Nunito',
                   color: AppColors.textSecondary,
@@ -1377,7 +1380,7 @@ class _ConfidenceRingPainter extends CustomPainter {
 //         //         ),
 //         //       ],
 //         //     ),
-//         //     child: const Row(
+//         //     child: Row(
 //         //       mainAxisAlignment: MainAxisAlignment.center,
 //         //       children: [
 //         //         Icon(Icons.fiber_manual_record_rounded,
@@ -1417,7 +1420,7 @@ class _ConfidenceRingPainter extends CustomPainter {
 //         //         width: 1.5,
 //         //       ),
 //         //     ),
-//         //     child: const Row(
+//         //     child: Row(
 //         //       mainAxisAlignment: MainAxisAlignment.center,
 //         //       children: [
 //         //         Icon(Icons.menu_book_rounded,

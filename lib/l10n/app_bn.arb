@@ -1,0 +1,170 @@
+{
+  "@@locale": "bn",
+  "splashBranding": "ভারতীয় সাইন ভাষা",
+  "navHome": "হোম",
+  "navLearn": "শিখুন",
+  "navChat": "চ্যাট",
+  "navHomeTooltip": "সাইন ডিটেকশন হোম",
+  "navLearnTooltip": "শিক্ষামূলক কেন্দ্র - ISL বিভাগ",
+  "navChatTooltip": "ISL চ্যাটবট সহকারী",
+  "homeCommunicate": "যোগাযোগ করুন",
+  "homeFreely": "স্বাধীনভাবে",
+  "homeSubtitle": "ভারতীয় সাইন ভাষা সহজ করা হয়েছে",
+  "homeStartDetection": "সাইন ডিটেকশন শুরু করুন",
+  "homeStartDetectionHint": "শুরু করতে ক্যামেরা হাতের দিকে নির্দেশ করুন",
+  "homeStartDetectionLabel": "সাইন ডিটেকশন শুরু করুন। ক্যামেরা খুলতে এবং সাইন সনাক্তকরণ শুরু করতে ট্যাপ করুন।",
+  "homeQuickAccess": "দ্রুত প্রবেশ",
+  "homePracticeMode": "অনুশীলন মোড",
+  "homeRecentSigns": "সাম্প্রতিক সংকেতসমূহ",
+  "homeTipTitle": "আজকের টিপস",
+  "homeTipBody": "\"হ্যালো\" সংকেত অনুশীলন করুন: খোলা তালু পাশ থেকে পাশে নাড়ুন।",
+  "eduHubTitle": "শিক্ষামূলক কেন্দ্র",
+  "eduHubCategoriesToExplore": "{count}টি বিভাগ অন্বেষণ করুন",
+  "@eduHubCategoriesToExplore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eduHubInteractiveLearning": "ইন্টারেক্টিভ লার্নিং",
+  "eduHubLearnWith3D": "3D অবতারের সাথে শিখুন",
+  "eduHubAvatarDesc": "একটি অ্যানিমেটেড অবতারকে সম্পূর্ণ 3D তে প্রতিটি ISL সংকেত প্রদর্শন করতে দেখুন। ক্যামেরা ঘোরান, প্লেব্যাক গতি সামঞ্জস্য করুন এবং আপনার নিজের গতিতে সংকেত অন্বেষণ করুন।",
+  "eduHubOpen3DViewer": "3D ভিউয়ার খুলুন",
+  "eduHubSignCategories": "সংকেত বিভাগসমূহ",
+  "eduHubTopicsCount": "{count}টি বিষয়",
+  "@eduHubTopicsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eduHubAvatarSemantics": "একটি ইন্টারেক্টিভ 3D অবতারের সাথে ভারতীয় সাইন ল্যাঙ্গুয়েজ শিখুন। অন্বেষণ করতে ট্যাপ করুন।",
+  "categoryAlphabets": "বর্ণমালা",
+  "categoryAlphabetsDesc": "A থেকে Z হাতের সংকেত",
+  "categoryNumbers": "সংখ্যা",
+  "categoryNumbersDesc": "০ থেকে ১০০ সংকেত",
+  "categoryDailyActions": "দৈনন্দিন কাজ",
+  "categoryDailyActionsDesc": "খাওয়া, পান করা, যাওয়া ও আরও",
+  "categoryEmotions": "অনুভূতি",
+  "categoryEmotionsDesc": "খুশি, দুঃখিত, রাগান্বিত...",
+  "categoryEmergency": "জরুরি অবস্থা",
+  "categoryEmergencyDesc": "সাহায্য, বিপদ, থামুন",
+  "categoryGreetings": "অভিবাদন",
+  "categoryGreetingsDesc": "হ্যালো, ধন্যবাদ, বিদায়",
+  "lessonComingSoonTitle": "{title} পাঠ",
+  "@lessonComingSoonTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonComingSoon": "শীঘ্রই আসছে! পাঠের বিষয়বস্তু\nএখানে প্রদর্শিত হবে।",
+  "lessonGoBack": "ফিরে যান",
+  "chatbotTitle": "ISL গাইড",
+  "chatbotStatus": "আমাকে টেক্সট বা সংকেতে জিজ্ঞাসা করুন",
+  "chatbotWelcome": "নমস্তে! আমি আপনার ISL গাইড। সাধারণ, স্বাস্থ্যসেবা বা সহায়তা প্রশ্ন সম্পর্কে আমাকে জিজ্ঞাসা করুন।",
+  "chatbotInputHint": "কিছু জিজ্ঞাসা করুন…",
+  "chatbotCameraLabel": "চিহ্ন সনাক্ত করতে ক্যামেরা ব্যবহার করুন",
+  "chatbotSendLabel": "বার্তা পাঠান",
+  "chatbotLowConfidence": "নিম্ন আত্মবিশ্বাস চিহ্ন সনাক্তকরণ। অনুগ্রহ করে আবার চেষ্টা করুন।",
+  "chatbotDetectionFailed": "চিহ্ন সনাক্তকরণ ব্যর্থ হয়েছে।",
+  "chatbotBackendError": "ব্যাকএন্ড সংযোগ ত্রুটি।",
+  "recordTitle": "চিহ্ন রেকর্ড করুন",
+  "recordGoBack": "ফিরে যান",
+  "recordSwitchCamera": "ক্যামেরা পরিবর্তন করুন",
+  "recordPositionHint": "🤚  আপনার হাত ফ্রেমে রাখুন",
+  "recordStatusIdle": "রেকর্ডিং শুরু করতে ট্যাপ করুন",
+  "recordStatusRecording": "আপনার চিহ্ন রেকর্ড হচ্ছে…",
+  "recordStartBtn": "রেকর্ডিং শুরু করুন",
+  "recordStopBtn": "রেকর্ডিং বন্ধ করুন",
+  "recordCameraUnavailable": "ক্যামেরা উপলব্ধ নয়: {error}",
+  "@recordCameraUnavailable": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "previewTitle": "সাইন প্রিভিউ",
+  "previewRetake": "পুনরায় নিন",
+  "previewReplay": "পুনরায় চালান",
+  "previewHint": "পাঠানোর আগে আপনার সাইন পর্যালোচনা করুন",
+  "previewUpload": "আপলোড ও পূর্বাভাস",
+  "previewAnalysing": "সাইন বিশ্লেষণ করা হচ্ছে…",
+  "previewSendingToModel": "ISL মডেলে পাঠানো হচ্ছে",
+  "previewPredictionFailed": "পূর্বাভাস ব্যর্থ: {error}",
+  "@previewPredictionFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "resultTitle": "সনাক্তকরণের ফলাফল",
+  "resultShare": "ফলাফল শেয়ার করুন",
+  "resultBackToPreview": "প্রিভিউতে ফিরে যান",
+  "resultSignDetected": "সাইন সফলভাবে সনাক্ত হয়েছে",
+  "resultPredictedSign": "পূর্বাভাসিত সাইন",
+  "resultConfidenceScore": "আত্মবিশ্বাসের স্কোর",
+  "resultAccurate": "{pct}% সঠিক",
+  "@resultAccurate": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "resultHighConfidence": "উচ্চ আত্মবিশ্বাস",
+  "resultMediumConfidence": "মাঝারি আত্মবিশ্বাস",
+  "resultLowConfidence": "নিম্ন আত্মবিশ্বাস",
+  "resultRecordAgain": "আবার রেকর্ড করুন",
+  "resultFeedbackTitle": "GESPY উন্নত করতে সাহায্য করুন",
+  "resultFeedbackQuestion": "\"{label}\" কি সঠিক ছিল?",
+  "@resultFeedbackQuestion": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "resultFeedbackYes": "হ্যাঁ, সঠিক!",
+  "resultFeedbackNo": "না, ভুল",
+  "resultFeedbackWhatCorrect": "সঠিক সংকেতটি কী ছিল?",
+  "resultFeedbackSelectHint": "সঠিক সংকেতটি নির্বাচন করুন",
+  "resultFeedbackSubmit": "সংশোধন জমা দিন",
+  "resultFeedbackSubmitting": "প্রতিক্রিয়া জমা হচ্ছে...",
+  "resultFeedbackThanks": "নিশ্চিত করার জন্য ধন্যবাদ! 🎉",
+  "resultFeedbackError": "জমা দেওয়া যায়নি। আবার চেষ্টা করুন।",
+  "categoryDetailProgress": "{percent}%",
+  "@categoryDetailProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "quizTitle": "কুইজ",
+  "quizCompleted": "কুইজ সম্পন্ন হয়েছে",
+  "quizScore": "আপনার স্কোর: {score} / {total}",
+  "@quizScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recentSignsTitle": "সাম্প্রতিক সংকেত",
+  "detectionScreenTitle": "সংকেত সনাক্তকরণ",
+  "detectionToggleFlash": "ফ্ল্যাশলাইট চালু/বন্ধ করুন",
+  "detectionSwitchCamera": "ক্যামেরা পরিবর্তন করুন",
+  "detectionPositionHand": "আপনার হাত\nএখানে রাখুন",
+  "detectionWaiting": "সংকেতের জন্য অপেক্ষা করছে…",
+  "detectionPlaceholderLabel": "সনাক্ত সংকেত এখানে প্রদর্শিত হবে",
+  "genericBackendPending": "🚧 ব্যাকএন্ড ইন্টিগ্রেশন মুলতুবি"
+}

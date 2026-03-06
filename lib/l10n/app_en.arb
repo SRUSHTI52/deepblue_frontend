@@ -1,0 +1,165 @@
+{
+  "@@locale": "en",
+
+  "splashBranding": "Indian Sign Language",
+
+  "navHome": "Home",
+  "navLearn": "Learn",
+  "navChat": "Chat",
+  "navHomeTooltip": "Sign Detection Home",
+  "navLearnTooltip": "Educational Hub - ISL Categories",
+  "navChatTooltip": "ISL Chatbot Assistant",
+
+  "homeCommunicate": "Communicate",
+  "homeFreely": "Freely",
+  "homeSubtitle": "Indian Sign Language made simple",
+  "homeStartDetection": "Start Sign Detection",
+  "homeStartDetectionHint": "Point camera at hands to begin",
+  "homeStartDetectionLabel": "Start Sign Detection. Tap to open camera and begin detecting signs.",
+  "homeQuickAccess": "Quick Access",
+  "homePracticeMode": "Practice Mode",
+  "homeRecentSigns": "Recent Signs",
+  "homeTipTitle": "Tip of the Day",
+  "homeTipBody": "Practice \"Hello\" sign: wave open palm side to side.",
+
+  "eduHubTitle": "Educational Hub",
+  "eduHubCategoriesToExplore": "{count} categories to explore",
+  "@eduHubCategoriesToExplore": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "eduHubInteractiveLearning": "INTERACTIVE LEARNING",
+  "eduHubLearnWith3D": "Learn with 3D Avatar",
+  "eduHubAvatarDesc": "Watch an animated avatar demonstrate every ISL sign in full 3D. Rotate the camera, adjust playback speed, and explore signs at your own pace.",
+  "eduHubOpen3DViewer": "Open 3D Viewer",
+  "eduHubSignCategories": "Sign Categories",
+  "eduHubTopicsCount": "{count} topics",
+  "@eduHubTopicsCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "eduHubAvatarSemantics": "Learn Indian Sign Language with an interactive 3D avatar. Tap to explore.",
+
+  "categoryAlphabets": "Alphabets",
+  "categoryAlphabetsDesc": "A to Z hand signs",
+  "categoryNumbers": "Numbers",
+  "categoryNumbersDesc": "0 to 100 signs",
+  "categoryDailyActions": "Daily Actions",
+  "categoryDailyActionsDesc": "Eat, drink, go & more",
+  "categoryEmotions": "Emotions",
+  "categoryEmotionsDesc": "Happy, sad, angry...",
+  "categoryEmergency": "Emergency",
+  "categoryEmergencyDesc": "Help, danger, stop",
+  "categoryGreetings": "Greetings",
+  "categoryGreetingsDesc": "Hello, thanks, bye",
+
+  "lessonComingSoonTitle": "{title} Lessons",
+  "@lessonComingSoonTitle": {
+    "placeholders": {
+      "title": { "type": "String" }
+    }
+  },
+  "lessonComingSoon": "Coming soon! Lesson content\nwill appear here.",
+  "lessonGoBack": "Go back",
+
+  "chatbotTitle": "ISL Guide",
+  "chatbotStatus": "Ask me in text or sign",
+  "chatbotWelcome": "Namaste! I'm your ISL guide. Ask me about any general, healthcare or support queries.",
+  "chatbotInputHint": "Ask anything…",
+  "chatbotCameraLabel": "Use camera to detect sign",
+  "chatbotSendLabel": "Send message",
+  "chatbotLowConfidence": "Low confidence sign detection. Please try again.",
+  "chatbotDetectionFailed": "Sign detection failed.",
+  "chatbotBackendError": "Backend connection error.",
+
+  "recordTitle": "Record Sign",
+  "recordGoBack": "Go back",
+  "recordSwitchCamera": "Switch camera",
+  "recordPositionHint": "🤚  Position your hand in frame",
+  "recordStatusIdle": "Tap to start recording",
+  "recordStatusRecording": "Recording your sign…",
+  "recordStartBtn": "Start Recording",
+  "recordStopBtn": "Stop Recording",
+  "recordCameraUnavailable": "Camera unavailable: {error}",
+  "@recordCameraUnavailable": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+
+  "previewTitle": "Preview Sign",
+  "previewRetake": "Retake",
+  "previewReplay": "Replay",
+  "previewHint": "Review your sign before sending",
+  "previewUpload": "Upload & Predict",
+  "previewAnalysing": "Analysing Sign…",
+  "previewSendingToModel": "Sending to ISL model",
+  "previewPredictionFailed": "Prediction failed: {error}",
+  "@previewPredictionFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+
+  "resultTitle": "Detection Result",
+  "resultShare": "Share result",
+  "resultBackToPreview": "Back to preview",
+  "resultSignDetected": "Sign Successfully Detected",
+  "resultPredictedSign": "Predicted Sign",
+  "resultConfidenceScore": "Confidence Score",
+  "resultAccurate": "{pct}% accurate",
+  "@resultAccurate": {
+    "placeholders": {
+      "pct": { "type": "String" }
+    }
+  },
+  "resultHighConfidence": "High confidence",
+  "resultMediumConfidence": "Medium confidence",
+  "resultLowConfidence": "Low confidence",
+  "resultRecordAgain": "Record Again",
+  "resultFeedbackTitle": "Help Improve GESPY",
+  "resultFeedbackQuestion": "Was \"{label}\" correct?",
+  "@resultFeedbackQuestion": {
+    "placeholders": {
+      "label": { "type": "String" }
+    }
+  },
+  "resultFeedbackYes": "Yes, correct!",
+  "resultFeedbackNo": "No, wrong",
+  "resultFeedbackWhatCorrect": "What was the correct sign?",
+  "resultFeedbackSelectHint": "Select the correct sign",
+  "resultFeedbackSubmit": "Submit Correction",
+  "resultFeedbackSubmitting": "Submitting feedback...",
+  "resultFeedbackThanks": "Thanks for confirming! 🎉",
+  "resultFeedbackError": "Could not submit. Please try again.",
+
+  "categoryDetailProgress": "{percent}%",
+  "@categoryDetailProgress": {
+    "placeholders": {
+      "percent": { "type": "int" }
+    }
+  },
+
+  "quizTitle": "Quiz",
+  "quizCompleted": "Quiz Completed",
+  "quizScore": "Your score: {score} / {total}",
+  "@quizScore": {
+    "placeholders": {
+      "score": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+
+  "recentSignsTitle": "Recent Signs",
+
+  "detectionScreenTitle": "Sign Detection",
+  "detectionToggleFlash": "Toggle flashlight",
+  "detectionSwitchCamera": "Switch camera",
+  "detectionPositionHand": "Position your hand\nhere",
+  "detectionWaiting": "Waiting for sign…",
+  "detectionPlaceholderLabel": "Detected sign appears here",
+
+  "genericBackendPending": "🚧 Backend integration pending"
+}

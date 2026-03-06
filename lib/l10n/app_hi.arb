@@ -1,0 +1,170 @@
+{
+  "@@locale": "hi",
+  "splashBranding": "भारतीय सांकेतिक भाषा",
+  "navHome": "होम",
+  "navLearn": "सीखें",
+  "navChat": "चैट",
+  "navHomeTooltip": "साइन डिटेक्शन होम",
+  "navLearnTooltip": "शैक्षिक केंद्र - ISL श्रेणियाँ",
+  "navChatTooltip": "ISL चैटबॉट सहायक",
+  "homeCommunicate": "संचार करें",
+  "homeFreely": "स्वतंत्रता से",
+  "homeSubtitle": "भारतीय सांकेतिक भाषा को सरल बनाएं",
+  "homeStartDetection": "साइन डिटेक्शन शुरू करें",
+  "homeStartDetectionHint": "शुरू करने के लिए कैमरा हाथों पर इंगित करें",
+  "homeStartDetectionLabel": "साइन डिटेक्शन शुरू करें। कैमरा खोलने और संकेतों का पता लगाने के लिए टैप करें।",
+  "homeQuickAccess": "त्वरित पहुँच",
+  "homePracticeMode": "अभ्यास मोड",
+  "homeRecentSigns": "हाल के संकेत",
+  "homeTipTitle": "आज की टिप",
+  "homeTipBody": "\"नमस्ते\" संकेत का अभ्यास करें: खुली हथेली को साइड से साइड तक लहराएं।",
+  "eduHubTitle": "शैक्षिक केंद्र",
+  "eduHubCategoriesToExplore": "{count} श्रेणियाँ खोजने के लिए",
+  "@eduHubCategoriesToExplore": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eduHubInteractiveLearning": "इंटरएक्टिव लर्निंग",
+  "eduHubLearnWith3D": "3D अवतार के साथ सीखें",
+  "eduHubAvatarDesc": "हर ISL संकेत को पूर्ण 3D में एक एनिमेटेड अवतार द्वारा देखें। कैमरा घुमाएं, प्लेबैक गति समायोजित करें, और अपने अनुसार संकेतों का अन्वेषण करें।",
+  "eduHubOpen3DViewer": "3D व्यूअर खोलें",
+  "eduHubSignCategories": "संकेत श्रेणियाँ",
+  "eduHubTopicsCount": "{count} विषय",
+  "@eduHubTopicsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "eduHubAvatarSemantics": "इंटरएक्टिव 3D अवतार के साथ भारतीय सांकेतिक भाषा सीखें। अन्वेषण के लिए टैप करें।",
+  "categoryAlphabets": "वर्णमाला",
+  "categoryAlphabetsDesc": "A से Z हाथ के संकेत",
+  "categoryNumbers": "संख्याएँ",
+  "categoryNumbersDesc": "0 से 100 संकेत",
+  "categoryDailyActions": "दैनिक क्रियाएँ",
+  "categoryDailyActionsDesc": "खाना, पीना, जाना और अधिक",
+  "categoryEmotions": "भावनाएँ",
+  "categoryEmotionsDesc": "खुश, उदास, गुस्सा...",
+  "categoryEmergency": "आपातकाल",
+  "categoryEmergencyDesc": "मदद, खतरा, रुकें",
+  "categoryGreetings": "अभिवादन",
+  "categoryGreetingsDesc": "नमस्ते, धन्यवाद, अलविदा",
+  "lessonComingSoonTitle": "{title} पाठ",
+  "@lessonComingSoonTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "lessonComingSoon": "जल्द आ रहा है! पाठ सामग्री\nयहाँ दिखाई देगी।",
+  "lessonGoBack": "वापस जाएँ",
+  "chatbotTitle": "ISL गाइड",
+  "chatbotStatus": "मुझसे टेक्स्ट या संकेत में पूछें",
+  "chatbotWelcome": "नमस्ते! मैं आपका ISL गाइड हूँ। मुझसे किसी भी सामान्य, स्वास्थ्य या समर्थन प्रश्न पूछें।",
+  "chatbotInputHint": "कुछ भी पूछें…",
+  "chatbotCameraLabel": "संकेत पहचानने के लिए कैमरा उपयोग करें",
+  "chatbotSendLabel": "संदेश भेजें",
+  "chatbotLowConfidence": "कम आत्मविश्वास संकेत पहचान। कृपया पुनः प्रयास करें।",
+  "chatbotDetectionFailed": "संकेत पहचान विफल।",
+  "chatbotBackendError": "बैकेंड कनेक्शन त्रुटि।",
+  "recordTitle": "संकेत रिकॉर्ड करें",
+  "recordGoBack": "वापस जाएं",
+  "recordSwitchCamera": "कैमरा बदलें",
+  "recordPositionHint": "🤚  अपने हाथ को फ्रेम में रखें",
+  "recordStatusIdle": "रिकॉर्डिंग शुरू करने के लिए टैप करें",
+  "recordStatusRecording": "आपका संकेत रिकॉर्ड हो रहा है…",
+  "recordStartBtn": "रिकॉर्डिंग शुरू करें",
+  "recordStopBtn": "रिकॉर्डिंग रोकें",
+  "recordCameraUnavailable": "कैमरा उपलब्ध नहीं: {error}",
+  "@recordCameraUnavailable": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "previewTitle": "संकेत पूर्वावलोकन",
+  "previewRetake": "फिर से लें",
+  "previewReplay": "फिर से चलाएं",
+  "previewHint": "भेजने से पहले अपने संकेत की समीक्षा करें",
+  "previewUpload": "अपलोड करें और भविष्यवाणी करें",
+  "previewAnalysing": "संकेत का विश्लेषण कर रहे हैं…",
+  "previewSendingToModel": "ISL मॉडल को भेज रहे हैं",
+  "previewPredictionFailed": "भविष्यवाणी विफल: {error}",
+  "@previewPredictionFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "resultTitle": "पता लगाने का परिणाम",
+  "resultShare": "परिणाम साझा करें",
+  "resultBackToPreview": "पूर्वावलोकन पर वापस जाएं",
+  "resultSignDetected": "संकेत सफलतापूर्वक पहचाना गया",
+  "resultPredictedSign": "अनुमानित संकेत",
+  "resultConfidenceScore": "विश्वास स्कोर",
+  "resultAccurate": "{pct}% सटीक",
+  "@resultAccurate": {
+    "placeholders": {
+      "pct": {
+        "type": "String"
+      }
+    }
+  },
+  "resultHighConfidence": "उच्च विश्वास",
+  "resultMediumConfidence": "मध्यम विश्वास",
+  "resultLowConfidence": "कम विश्वास",
+  "resultRecordAgain": "फिर से रिकॉर्ड करें",
+  "resultFeedbackTitle": "GESPY को बेहतर बनाने में मदद करें",
+  "resultFeedbackQuestion": "क्या \"{label}\" सही था?",
+  "@resultFeedbackQuestion": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "resultFeedbackYes": "हाँ, सही!",
+  "resultFeedbackNo": "नहीं, गलत",
+  "resultFeedbackWhatCorrect": "सही संकेत क्या था?",
+  "resultFeedbackSelectHint": "सही संकेत चुनें",
+  "resultFeedbackSubmit": "सुधार सबमिट करें",
+  "resultFeedbackSubmitting": "प्रतिक्रिया सबमिट कर रहे हैं...",
+  "resultFeedbackThanks": "पुष्टि करने के लिए धन्यवाद! 🎉",
+  "resultFeedbackError": "सबमिट नहीं कर सके। कृपया पुनः प्रयास करें।",
+  "categoryDetailProgress": "{percent}%",
+  "@categoryDetailProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "quizTitle": "प्रश्नोत्तरी",
+  "quizCompleted": "प्रश्नोत्तरी पूरी हुई",
+  "quizScore": "आपका स्कोर: {score} / {total}",
+  "@quizScore": {
+    "placeholders": {
+      "score": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "recentSignsTitle": "हाल के संकेत",
+  "detectionScreenTitle": "संकेत पहचान",
+  "detectionToggleFlash": "फ्लैशलाइट चालू/बंद करें",
+  "detectionSwitchCamera": "कैमरा बदलें",
+  "detectionPositionHand": "अपना हाथ यहाँ रखें\n",
+  "detectionWaiting": "संकेत की प्रतीक्षा…",
+  "detectionPlaceholderLabel": "पहचाना गया संकेत यहाँ दिखाई देगा",
+  "genericBackendPending": "🚧 बैकएंड एकीकरण लंबित"
+}

@@ -16,7 +16,7 @@ import '../widgets/app_widgets.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
-
+import '../l10n/app_localizations.dart';
 
 // ── Message data model ───────────────────────────────────────────────────────
 class ChatMessage {
