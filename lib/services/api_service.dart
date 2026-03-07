@@ -7,7 +7,7 @@ class ApiService {
   // Use LAN IP if testing on real phone (not localhost)
   // static const String baseUrl = "https://alethea-cephalalgic-elise.ngrok-free.dev";
   // static const String baseUrl = "https://laurie-unhinderable-lucy.ngrok-free.dev";
-  static const String baseUrl = "https://prebarbarous-jalen-nonrespectably.ngrok-free.dev";
+  static const String baseUrl = "https://islbackend-production-fbe6.up.railway.app";
 
   static Future<Map<String, dynamic>> uploadVideo(File videoFile) async {
     final uri = Uri.parse("$baseUrl/predict");
