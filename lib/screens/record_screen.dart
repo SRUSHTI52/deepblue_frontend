@@ -5,6 +5,7 @@ import 'package:camera/camera.dart';
 import 'package:isl_deep_blue/screens/preview_screen.dart';
 import '../theme/app_theme.dart';
 import '../utils/localization_ext.dart';
+import 'package:image_picker/image_picker.dart';
 
 class RecordScreen extends StatefulWidget {
   const RecordScreen({super.key});
@@ -27,7 +28,18 @@ class _RecordScreenState extends State<RecordScreen> with SingleTickerProviderSt
     _recDotOpacity = Tween<double>(begin: 1.0, end: 0.15).animate(CurvedAnimation(parent: _recDotController, curve: Curves.easeInOut));
     _initCamera();
   }
-
+  Future<void> _pickVideoFromGallery() async {
+    final picker = ImagePicker();
+    final picked = await picker.pickVideo(source: ImageSource.gallery);
+    if (picked == null) return;
+    if (!mounted) return;
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => PreviewScreen(videoFile: File(picked.path)),
+      ),
+    );
+  }
   Future<void> _initCamera() async {
     try {
       final cameras = await availableCameras();
@@ -119,16 +131,33 @@ class _RecordScreenState extends State<RecordScreen> with SingleTickerProviderSt
             color: Colors.black,
             padding: const EdgeInsets.fromLTRB(24, 16, 24, 28),
             child: Column(mainAxisSize: MainAxisSize.min, children: [
-              Text(_isRecording ? l10n.recordStatusRecording : l10n.recordStatusIdle,
-                  style: TextStyle(fontFamily: 'Nunito', color: Colors.white.withOpacity(0.6), fontSize: 13, fontWeight: FontWeight.w500)),
+              Text(
+                _isRecording ? l10n.recordStatusRecording : l10n.recordStatusIdle,
+                style: TextStyle(
+                  fontFamily: 'Nunito',
+                  color: Colors.white.withOpacity(0.6),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               const SizedBox(height: 14),
+
+              // --- EXISTING record/stop button ---
               SizedBox(
-                width: double.infinity, height: 56,
+                width: double.infinity,
+                height: 56,
                 child: ElevatedButton.icon(
                   onPressed: _isRecording ? _stopRecording : _startRecording,
-                  icon: Icon(_isRecording ? Icons.stop_circle_outlined : Icons.fiber_manual_record_rounded, size: 22),
-                  label: Text(_isRecording ? l10n.recordStopBtn : l10n.recordStartBtn,
-                      style: const TextStyle(fontFamily: 'Nunito', fontSize: 16, fontWeight: FontWeight.w800)),
+                  icon: Icon(
+                    _isRecording ? Icons.stop_circle_outlined : Icons.fiber_manual_record_rounded,
+                    size: 22,
+                  ),
+                  label: Text(
+                    _isRecording ? l10n.recordStopBtn : l10n.recordStartBtn,
+                    style: const TextStyle(
+                      fontFamily: 'Nunito', fontSize: 16, fontWeight: FontWeight.w800,
+                    ),
+                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: _isRecording ? AppColors.accentWarm : AppColors.primary,
                     foregroundColor: Colors.white,
@@ -138,6 +167,30 @@ class _RecordScreenState extends State<RecordScreen> with SingleTickerProviderSt
                   ),
                 ),
               ),
+
+              // --- NEW upload button (hidden while recording) ---
+              if (!_isRecording) ...[
+                const SizedBox(height: 12),
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: OutlinedButton.icon(
+                    onPressed: _pickVideoFromGallery,
+                    icon: const Icon(Icons.upload_file_rounded, size: 20),
+                    label: const Text(
+                      'Upload & Predict',   // or use l10n key
+                      style: TextStyle(
+                        fontFamily: 'Nunito', fontSize: 15, fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: AppColors.accent,
+                      side: BorderSide(color: AppColors.accent, width: 1.5),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+                    ),
+                  ),
+                ),
+              ],
             ]),
           ),
         ],

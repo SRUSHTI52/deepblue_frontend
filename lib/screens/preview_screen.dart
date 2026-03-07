@@ -124,9 +124,7 @@ class _PreviewScreenState extends State<PreviewScreen>
   Widget _buildVideoLayer() {
     if (!_videoReady) {
       return const Center(
-        child: CircularProgressIndicator(
-          color: AppColors.accent,
-        ),
+        child: CircularProgressIndicator(color: AppColors.accent),
       );
     }
 
@@ -134,7 +132,7 @@ class _PreviewScreenState extends State<PreviewScreen>
       onTap: _togglePlay,
       child: SizedBox.expand(
         child: FittedBox(
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,  // ← change cover to contain
           child: SizedBox(
             width: _videoController.value.size.width,
             height: _videoController.value.size.height,
