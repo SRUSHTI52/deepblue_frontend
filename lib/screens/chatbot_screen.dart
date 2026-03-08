@@ -23,12 +23,14 @@ class ChatMessage {
   final String text;
   final bool isUser;
   final bool isSign;
+  final String? videoUrl;
   final DateTime time;
 
   const ChatMessage({
     required this.text,
     required this.isUser,
     this.isSign = false,
+    this.videoUrl,
     required this.time,
   });
 }
@@ -238,11 +240,12 @@ class _ChatbotScreenState extends State<ChatbotScreen>
 
       final data = jsonDecode(response.body);
       final botReply = data["reply"];
-
+      final videoUrl = data["video_url"];
       setState(() => _isTyping = false);
 
       _addNewMessage(ChatMessage(
         text: botReply ?? "Sorry, I couldn't respond.",
+        videoUrl: videoUrl,
         isUser: false,
         time: DateTime.now(),
       ));
@@ -471,6 +474,7 @@ class _ChatbotScreenState extends State<ChatbotScreen>
           padding: const EdgeInsets.symmetric(vertical: 4),
           child: ChatBubble(
             message: message.text,
+            videoUrl: message.videoUrl,
             isUser: message.isUser,
             isSign: message.isSign,
             timestamp: message.time,

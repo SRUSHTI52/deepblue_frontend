@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../theme/app_theme.dart';
+import 'package:video_player/video_player.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 /// Animated tap wrapper that scales down on press for tactile feedback.
@@ -401,7 +402,8 @@ class _TypingIndicatorState extends State<TypingIndicator>
 class ChatBubble extends StatelessWidget {
   final String message;
   final bool isUser;
-  final bool isSign; // true if the message represents a sign
+  final bool isSign;// true if the message represents a sign
+  final String? videoUrl;
   final DateTime timestamp;
 
   const ChatBubble({
@@ -410,6 +412,7 @@ class ChatBubble extends StatelessWidget {
     required this.isUser,
     this.isSign = false,
     required this.timestamp,
+    this.videoUrl,
   });
 
   @override
@@ -483,20 +486,103 @@ class ChatBubble extends StatelessWidget {
                   ),
                 ),
               ],
-              Text(
-                message,
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  color: isUser
-                      ? AppColors.userBubbleText
-                      : AppColors.botBubbleText,
-                  fontSize: 15,
-                ),
-              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  Text(
+                    message,
+                    style: TextStyle(
+                      color: isUser ? Colors.white : Colors.black87,
+                    ),
+                  ),
+
+                  if (videoUrl != null) ...[
+                    const SizedBox(height: 10),
+
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: AspectRatio(
+                        aspectRatio: 16 / 9,
+                        child: VideoPlayerWidget(videoUrl!),
+                      ),
+                    ),
+                  ],
+                ],
+              )
+              // Text(
+              //   message,
+              //   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+              //     color: isUser
+              //         ? AppColors.userBubbleText
+              //         : AppColors.botBubbleText,
+              //     fontSize: 15,
+              //   ),
+              // ),
             ],
           ),
         ),
       ),
     );
+  }
+}
+class VideoPlayerWidget extends StatefulWidget {
+  final String url;
+
+  const VideoPlayerWidget(this.url, {super.key});
+
+  @override
+  State<VideoPlayerWidget> createState() => _VideoPlayerWidgetState();
+}
+
+class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = VideoPlayerController.networkUrl(Uri.parse(widget.url))
+      ..initialize().then((_) {
+        setState(() {});
+      });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (!_controller.value.isInitialized) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        VideoPlayer(_controller),
+
+        IconButton(
+          icon: Icon(
+            _controller.value.isPlaying
+                ? Icons.pause_circle
+                : Icons.play_circle,
+            color: Colors.white,
+            size: 40,
+          ),
+          onPressed: () {
+            setState(() {
+              _controller.value.isPlaying
+                  ? _controller.pause()
+                  : _controller.play();
+            });
+          },
+        )
+      ],
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
 

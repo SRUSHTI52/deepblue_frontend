@@ -35,6 +35,7 @@ import '../utils/localization_ext.dart';
 
 class AdaptiveLearningService {
   // ← PASTE YOUR ADAPTIVE LEARNING NGROK URL HERE
+  // static const String _baseUrl = 'https://nylah-migrational-mistie.ngrok-free.dev';
   static const String _baseUrl = 'https://adaptivelearningisl-production.up.railway.app';
 
   /// Fetch all 25 known labels for correction dropdown
