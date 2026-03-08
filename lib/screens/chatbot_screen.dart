@@ -465,6 +465,7 @@ class _ChatbotScreenState extends State<ChatbotScreen>
                 isUser: message.isUser,
                 isSign: message.isSign,
                 timestamp: message.time,
+                videoUrl: message.videoUrl,
               ),
             ),
           );
